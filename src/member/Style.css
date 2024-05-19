@@ -1,0 +1,75 @@
+@media (max-width: 500px) {
+    :root {
+        --submitcolor : #FFFACDFF;
+        --inputcolor : #D3D3D3FF;
+        --labelsize : 18px;
+        --mainwidth : 98%;
+        --radius : 15px;
+    }
+    #root {
+        display: flex;
+        justify-content: center;
+    }
+
+    #body {
+        margin: 0;
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    label {
+        font-size: var(--labelsize);
+    }
+
+    header {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    header > img {
+        width: 150px;
+        height: fit-content;
+    }
+
+    .blank {
+        background-color: var(--inputcolor);
+        border: none;
+        width: var(--mainwidth);
+        height: 30px;
+    }
+
+    .submit {
+        border: none;
+        height: 50px;
+        font-weight: bold;
+        font-size: 18px;
+        background-color: var(--submitcolor);
+        width: var(--mainwidth);
+        border-radius: var(--radius);
+        margin-top: 30px;
+    }
+
+    a {
+        color: black;
+        font-size: 13px;
+    }
+
+    #login {
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    div, label, input {
+        margin-bottom: 8px;
+    }
+
+    .link {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
+}
