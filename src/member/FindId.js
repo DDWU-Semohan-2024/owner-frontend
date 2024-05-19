@@ -12,13 +12,12 @@ function FindId() {
             </header>
             <form id="findId" action="" method="post">
                 <label htmlFor="phoneNum">휴대전화</label>
-                <div>
+                <div className="certification">
                     <input className="blank" type="tel" name="phoneNum" id="phoneNum" autoComplete="tel"/>
-                    <input className="button" type="button" value="인증번호"/>
+                    <input className="certi" type="button" value="인증번호"/>
                 </div>
-                <input className="blank" type="number" name="certificationNum" id="certificationNum"
-                       autoComplete="one-time-code"/>
-                <input className="button" type="submit" value="아이디 찾기"/>
+                <input className="blank" type="number" name="certificationNum"/>
+                <input className="submit" type="submit" value="아이디 찾기"/>
             </form>
         </div>
     );

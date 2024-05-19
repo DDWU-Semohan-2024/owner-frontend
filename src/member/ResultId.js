@@ -17,8 +17,8 @@ function FindIdResult() {
                 <div className="text">가입일: 2024.04.01</div>
             </div>
             <div className="btn">
-                <a href="./login.html">확인</a>
-                <a href="./newPassword.html">비밀번호 재설정</a>
+                <Link to="/login">확인</Link>
+                <Link to="/newPassword">비밀번호 재설정</Link>
             </div>
         </div>
     );
