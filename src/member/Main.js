@@ -10,8 +10,7 @@ function Main() {
             <header>
                 <img src={logoImage} alt="logo"/>
             </header>
-            <div id="main">
-            {/* 버튼 클릭 시 동작을 정의한 함수를 onClick 이벤트로 추가 */}
+            <div className="mainLink">
                 <Link className="gray" to="/myInfo">나의 정보</Link>
                 <Link className="gray" to="/restaurantInfo">식당 정보</Link>
                 <Link className="lemon" to="/registerMenu">메뉴 등록</Link>
