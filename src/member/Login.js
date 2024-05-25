@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import "./Style.css"; // CSS 파일을 import
 import { Link } from 'react-router-dom';
 import logoImage from '../img/semohan-logo.png';
+import axios from "axios";
 
 function Login() {
     const [username, setUsername] = useState('');
@@ -19,11 +20,21 @@ function Login() {
         event.preventDefault();
         console.log('Username:', username);
         console.log('Password:', password);
+
         // 로그인 처리 등의 로직 추가
+        const data = {
+            username,
+            password,
+        };
+        const response = axios.post("/auth/sign-in", data);
+
+        console.log(response);
+
+        return response;
 
         // 로그인 버튼 클릭시 입력창 reset
-        setUsername("");
-        setPassword("");
+        // setUsername("");
+        // setPassword("");
     };
 
     return (
