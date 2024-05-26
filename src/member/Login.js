@@ -5,6 +5,7 @@ import logoImage from '../img/semohan-logo.png';
 import axios from "axios";
 
 function Login() {
+
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
@@ -18,6 +19,7 @@ function Login() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+
         console.log('Username:', username);
         console.log('Password:', password);
 
@@ -50,13 +52,11 @@ function Login() {
                 <label htmlFor="password">비밀번호</label>
                 <input className="blank" onChange={handlePasswordChange} type="password" id="password"
                            value={password}/>
-
-                {/*<button type="submit" className="button">로그인</button>*/}
                 <input className="submit" type="submit" value="로그인"/>
                 <div className="loginLink">
                     <Link to="/findId">아이디 찾기</Link>
                     <Link to="/newPassword">비밀번호 재설정</Link>
-                    <Link to="/register">회원가입</Link>
+                    <Link to="/">회원가입 문의</Link>
                 </div>
             </form>
         </div>

@@ -10,11 +10,11 @@ function FindIdResult() {
                 <img src={logoImage} alt="logo"/>
             </header>
             <div id="result">
-            휴대폰 번호와 일치하는 아이디입니다.
+                휴대폰 번호와 일치하는 아이디입니다.
             </div>
             <div id="resultId">
-                <div className="text">아이디: semohan123</div>
-                <div className="text">가입일: 2024.04.01</div>
+                <div>아이디: semohan123</div>
+                <div>가입일: 2024.04.01</div>
             </div>
             <div className="btn">
                 <Link to="/login">확인</Link>

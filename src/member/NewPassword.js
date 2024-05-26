@@ -19,7 +19,7 @@ function NewPassword() {
     };
 
     return (
-        <div>
+        <div id="body">
             <header>
                 <img src={logoImage} alt="logo" />
             </header>
@@ -27,18 +27,16 @@ function NewPassword() {
             <form id="newPassword" onSubmit={handleSubmit}>
 
                 <label htmlFor="username">아이디</label>
-                <div>
-                    <input
-                        className="blank"
-                        type="text"
-                        id="username"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
-                    />
-                </div>
+                <input
+                    className="blank"
+                    type="text"
+                    id="username"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                />
 
                 <label htmlFor="password">비밀번호</label>
-                <div>
+                <div id="containImg">
                     <input
                         className="blank"
                         type="password"
@@ -50,8 +48,9 @@ function NewPassword() {
                     <img src={lock} alt="lock"/>
                 </div>
 
+
                 <label htmlFor="passwordCheck">비밀번호 재확인</label>
-                <div>
+                <div id="containImg">
                     <input
                         className="blank"
                         type="password"
@@ -59,32 +58,24 @@ function NewPassword() {
                         value={passwordCheck}
                         onChange={(e) => setPasswordCheck(e.target.value)}
                     />
-                    <img src={beforeCheck} alt="check" />
+                    <img src={beforeCheck} alt="check"/>
                 </div>
 
                 <label htmlFor="phoneNum">휴대전화</label>
-                <div>
-                    <input
-                        className="blank"
-                        type="text"
-                        name="phoneNum"
-                        id="phoneNum"
-                        value={phoneNum}
-                        onChange={(e) => setPhoneNum(e.target.value)}
-                    />
-                    <input className="button" type="button" value="인증번호" />
+                <div className="certification">
+                    <input className="blank" type="tel" name="phoneNum" id="phoneNum" autoComplete="tel"
+                           value={phoneNum}
+                           onChange={(e) => setPhoneNum(e.target.value)}/>
+                    <input className="certi" type="button" value="인증번호"/>
                 </div>
-
-                <input
-                    className="blank"
-                    type="number"
-                    name="certificationNum"
-                    id="certificationNum"
-                    placeholder="인증번호를 입력하세요"
-                    value={certificationNum}
-                    onChange={(e) => setCertificationNum(e.target.value)}
-                />
-                <input className="button" type="submit" value="비밀번호 변경" />
+                <div className="certification">
+                    <input className="blank" type="number" name="certificationNum"
+                           placeholder="인증번호를 입력하세요" id="certiPhone"
+                           value={certificationNum}
+                           onChange={(e) => setCertificationNum(e.target.value)}/>
+                    <input className="certi" type="button" value="확인"/>
+                </div>
+                <input className="submit" type="submit" value="비밀번호 변경"/>
             </form>
         </div>
     );
