@@ -55,27 +55,23 @@ function UpdateRestaurant() {
         }
     };
     return (
-        <div>
+        <div id="body">
             <header>
                 <img src={logoImage} alt="logo" />
             </header>
 
             <form id="updateRestaurant" method="post" action="" onSubmit={handleSubmit}>
 
-
                 <label htmlFor="address">주소</label>
-                <div>
-                    <input
+                <input
                         className="blank"
                         type="text"
                         name="address"
                         id="address"
                         value={formData.address}
                         onChange={handleChange}
-                    />
-                </div>
-                <div>
-                    <input
+                />
+                <input
                         className="blank"
                         type="text"
                         name="detailedAddress"
@@ -83,12 +79,10 @@ function UpdateRestaurant() {
                         value={formData.detailedAddress}
                         placeholder="상세 주소"
                         onChange={handleChange}
-                    />
-                </div>
+                />
 
                 <label htmlFor="businessHours">영업시간</label>
-                <div>
-                    <input
+                <input
                         className="blank"
                         type="text"
                         name="businessHours"
@@ -96,12 +90,10 @@ function UpdateRestaurant() {
                         value={formData.businessHours}
                         placeholder="영업시간"
                         onChange={handleChange}
-                    />
-                </div>
+                />
 
                 <label htmlFor="price">가격 안내</label>
-                <div>
-                    <input
+                <input
                         className="blank"
                         type="text"
                         name="price"
@@ -109,8 +101,7 @@ function UpdateRestaurant() {
                         value={formData.price}
                         placeholder="기존 가격"
                         onChange={handleChange}
-                    />
-                </div>
+                />
 
                 <label htmlFor="restaurantPhoto">가게 사진</label>
 
@@ -127,10 +118,7 @@ function UpdateRestaurant() {
                     />
 
                 </div>
-
-                <div>
-                    <input className="button" type="submit" value="저장"/>
-                </div>
+                <input className="submit" type="submit" value="저장"/>
             </form>
         </div>
     );

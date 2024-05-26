@@ -54,40 +54,36 @@ function UpdateInfo() {
     };
 
     return (
-        <div>
+        <div id="body">
             <header>
                 <img src={logoImage} alt="logo" />
             </header>
 
             <form id="updateInfo" method="post" action="" onSubmit={handleSubmit}>
                 <label htmlFor="name">기존 이름</label>
-                <div>
-                    <input
+                <input
                         className="blank"
                         type="text"
                         name="name"
                         id="name"
                         value={formData.name}
-                        placeholder="기존 이름"
+                        placeholder={formData.name}
                         onChange={handleChange}
-                    />
-                </div>
+                />
 
                 <label htmlFor="phoneNum">휴대전화</label>
-                <div>
-                    <input
+                <input
                         className="blank"
                         type="text"
                         name="phoneNum"
-                        id="phoneNum"
+                        id="phoneNumOriginal"
                         value={formData.phoneNum}
                         placeholder="기존 전화번호"
                         onChange={handleChange}
-                    />
-                </div>
+                />
 
                 <label htmlFor="password">비밀번호</label>
-                <div>
+                <div id="containImg">
                     <input
                         className="blank"
                         type="password"
@@ -100,7 +96,7 @@ function UpdateInfo() {
                 </div>
 
                 <label htmlFor="passwordCheck">비밀번호 재확인</label>
-                <div>
+                <div id="containImg">
                     <input
                         className="blank"
                         type="password"
@@ -111,11 +107,7 @@ function UpdateInfo() {
                     />
                     <img src={beforeCheck} alt="beforeCheck"/>
                 </div>
-
-
-                <div>
-                    <input className="button" type="submit" value="저장"/>
-                </div>
+                <input className="submit" type="submit" value="저장"/>
             </form>
         </div>
     );
