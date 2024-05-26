@@ -137,6 +137,10 @@
         border-radius: var(--radius);
     }
 
+    #certiPhone {
+        width: 80%;
+    }
+
     .find {
         background-color: var(--lemoncolor);
         width: var(--mainwidth);

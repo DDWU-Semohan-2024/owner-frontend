@@ -28,11 +28,11 @@ function NewPassword() {
 
                 <label htmlFor="username">아이디</label>
                 <input
-                        className="blank"
-                        type="text"
-                        id="username"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
+                    className="blank"
+                    type="text"
+                    id="username"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
                 />
 
                 <label htmlFor="password">비밀번호</label>
@@ -68,10 +68,13 @@ function NewPassword() {
                            onChange={(e) => setPhoneNum(e.target.value)}/>
                     <input className="certi" type="button" value="인증번호"/>
                 </div>
-                <input className="blank" type="number" name="certificationNum"
-                       placeholder="인증번호를 입력하세요"
-                       value={certificationNum}
-                       onChange={(e) => setCertificationNum(e.target.value)}/>
+                <div className="certification">
+                    <input className="blank" type="number" name="certificationNum"
+                           placeholder="인증번호를 입력하세요" id="certiPhone"
+                           value={certificationNum}
+                           onChange={(e) => setCertificationNum(e.target.value)}/>
+                    <input className="certi" type="button" value="확인"/>
+                </div>
                 <input className="submit" type="submit" value="비밀번호 변경"/>
             </form>
         </div>
