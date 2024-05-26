@@ -15,6 +15,7 @@ function Main() {
                 <Link className="gray" to="/restaurantInfo">식당 정보</Link>
                 <Link className="lemon" to="/registerMenu">메뉴 등록</Link>
                 <Link className="gray" to="/">비즈니스</Link>
+                <Link className="gray" to="/login">로그아웃</Link>
             </div>
         </div>
     );

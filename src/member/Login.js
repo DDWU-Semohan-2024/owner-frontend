@@ -41,13 +41,11 @@ function Login() {
                 <label htmlFor="password">비밀번호</label>
                 <input className="blank" onChange={handlePasswordChange} type="password" id="password"
                            value={password}/>
-
-                {/*<button type="submit" className="button">로그인</button>*/}
                 <input className="submit" type="submit" value="로그인"/>
                 <div className="loginLink">
                     <Link to="/findId">아이디 찾기</Link>
                     <Link to="/newPassword">비밀번호 재설정</Link>
-                    <Link to="/registerMenu">회원가입 문의</Link>
+                    <Link to="/">회원가입 문의</Link>
                 </div>
             </form>
         </div>

@@ -54,13 +54,16 @@
 
     .submit {
         border: none;
-        height: var(--btnheight);
+        /*height: var(--btnheight);*/
         font-weight: bold;
         font-size: var(--mainfontsize);
         background-color: var(--lemoncolor);
-        width: var(--mainwidth);
         border-radius: var(--radius);
         margin-top: 30px;
+        text-decoration: none;
+        color: black;
+        text-align: center;
+        padding: 15px 30px;
     }
 
     form {
@@ -69,7 +72,8 @@
 
     #login, #findId, #resultId,
     #newPassword, #updateInfo,
-    #updateRestaurant {
+    #updateRestaurant,
+    #updateMenu {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -200,6 +204,7 @@
 
     tr {
         width: var(--mainwidth);
+        height: 40px;
     }
 
     td {
@@ -211,10 +216,6 @@
     th {
         border-top: 1px solid black;
         border-right: 1px solid black;
-    }
-
-    tr {
-        height: 40px;
     }
 
     tr:last-child > th,
@@ -242,6 +243,117 @@
         width: var(--mainwidth);
     }
 
+    select {
+        border: 1px solid black;
+        display: flex;
+        justify-content: space-between;
+        height: 40px;
+        width: 100%;
+    }
 
+    select > option {
+        font-size: 10px;
+    }
+
+    #dateSelect {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    #dateSelect > select {
+        width: 85px;
+    }
+
+    #updateMenu > select:first-child {
+        margin-bottom: 20px;
+    }
+
+    #addInputBtn {
+        /*background-color: red;*/ /* + 버튼 색깔이 바뀌어요...............*/
+        background-color: transparent; /* 배경색을 완전히 투명하게 설정 */
+        border: none;
+        font-size: 18px;
+        border-radius: 15px;
+        height: 30px;
+        cursor: pointer;
+        width: 30px;
+        margin-left: 45%;
+    }
+
+    .addMenu {
+        display: flex;
+        flex-direction: column;
+        margin-top: 30px;
+    }
+
+    #viewMenu {
+        border-collapse: collapse; /*이중선 제거*/
+        font-size: var(--mainfontsize);
+        display: flex;
+        flex-direction: column;
+        width: var(--mainwidth);
+    }
+
+    #viewMenu > caption {
+        text-decoration: underline;
+        font-size: var(--mainfontsize);
+        margin-bottom: 30px;
+        margin-top: 30px;
+        display: flex;
+        padding-left: 30%;
+    }
+
+    #viewMenu > caption > div {
+        margin: 0 15px;
+    }
+
+    #viewMenu tr {
+        border-top: 1px solid black;
+        height: 50px;
+    }
+
+    #viewMenu th,
+    #viewMenu td {
+        font-size: 15px;
+        width: 70px;
+        padding: 0;
+    }
+
+    #viewMenu th:last-child {
+        border-right: none;
+    }
+
+    #viewMenu tr > th:first-child,
+    #viewMenu tr > th:nth-child(2),
+    #viewMenu tr > th:nth-child(3),
+    #viewMenu tr > td:first-child,
+    #viewMenu tr > td:nth-child(2),
+    #viewMenu tr > td:nth-child(3){
+        border-right: 1px solid black;
+        width: 70px;
+    }
+
+    #viewMenu tr:last-child {
+        border-bottom: 1px solid black;
+    }
+
+
+    .last {
+        width: 25px;
+        height: 25px;
+        rotate: 270deg;
+    }
+
+    .next {
+        width: 25px;
+        height: 25px;
+        rotate: 90deg;
+    }
+
+    .edit {
+        width: 30px;
+        height: 30px;
+        padding-left: 20px;
+    }
 
 }

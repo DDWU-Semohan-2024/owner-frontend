@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect} from 'react';
 import './Style.css';
 import logoImage from '../img/semohan-logo.png';
 import addMenuImage from '../img/free-icon-add-992651.png';
@@ -68,21 +68,21 @@ function UpdateMenu() {
     };
 
     return (
-        <div>
+        <div id="body">
             <header>
-                <img src={logoImage} alt="logo" />
+                <img src={logoImage} alt="logo"/>
             </header>
 
             <form id="updateMenu" method="post" action="" onSubmit={handleSubmit}>
                 <label>날짜</label>
-                <div>
+                <div id="dateSelect">
                     <select id="year" value={year} onChange={(e) => setYear(e.target.value)}>
                         <option value="2024">2024년</option>
                         <option value="2025">2025년</option>
                     </select>
 
                     <select id="month" value={month} onChange={(e) => setMonth(e.target.value)}>
-                        {Array.from({ length: 12 }, (_, i) => i + 1).map((m) => (
+                        {Array.from({length: 12}, (_, i) => i + 1).map((m) => (
                             <option key={m} value={m}>
                                 {m}월
                             </option>
@@ -90,7 +90,7 @@ function UpdateMenu() {
                     </select>
 
                     <select id="date" value={date} onChange={(e) => setDate(e.target.value)}>
-                        {Array.from({ length: 31 }, (_, i) => i + 1).map((d) => (
+                        {Array.from({length: 31}, (_, i) => i + 1).map((d) => (
                             <option key={d} value={d}>
                                 {d}일
                             </option>
@@ -99,57 +99,46 @@ function UpdateMenu() {
                 </div>
 
                 <label>구분</label>
-                <div>
-                    <select name="mealType">
-                        <option value="점심">점심</option>
-                        <option value="저녁">저녁</option>
-                    </select>
-                </div>
+                <select name="mealType" >
+                    <option value="점심">점심</option>
+                    <option value="저녁">저녁</option>
+                </select>
 
-                <label>메인 메뉴 (최대 2개)</label>
-                <div id ="addMainMenu">
-                    {mainMenus.map((menu, index) => (
-                        <input
-                            key={index}
-                            className="blank"
-                            type="text"
-                            name={`mainMenu${index + 1}`}
-                            value={menu}
-                            onChange={(e) => handleMainMenuChange(index, e.target.value)}
-                            placeholder="제육볶음"
-                        />
-                    ))}
-                    <button onClick={addMainMenu} id="addInputBtn">
-                        <img src={addMenuImage} alt="add" />
-                    </button>
-                </div>
-                <div id="inputContainer"></div>
-
-                <label>기타 메뉴</label>
-                <div id="addSubMenu">
-                    {subMenus.map((menu, index) => (
-                        <React.Fragment key={index}>
+                <div className="addMenu">
+                    <label>메인 메뉴 (최대 2개)</label>
+                    <div id="addMainMenu">
+                        {mainMenus.map((menu, index) => (
                             <input
+                                key={index}
                                 className="blank"
                                 type="text"
-                                name={`subMenu${index + 1}`}
+                                name={`mainMenu${index + 1}`}
                                 value={menu}
-                                onChange={(e) => handleSubMenuChange(index, e.target.value)}
-                                placeholder={index === 0 ? '멸치볶음' : '기타 메뉴 추가'}
+                                onChange={(e) => handleMainMenuChange(index, e.target.value)}
+                                placeholder="메인 메뉴"
                             />
-                            <div/><div/>
-                        </React.Fragment>
-                    ))}
-                    <button onClick={addSubMenu}>
-                        <img src={addMenuImage} alt="add" />
-                    </button>
+                        ))}
+                    </div>
+                    <img onClick={addMainMenu} id="addInputBtn" className="addbtn" src={addMenuImage} alt="add"/>
+
+                    <label>기타 메뉴</label>
+                    <div id="addSubMenu">
+                        {subMenus.map((menu, index) => (
+                            <React.Fragment key={index}>
+                                <input
+                                    className="blank"
+                                    type="text"
+                                    name={`subMenu${index + 1}`}
+                                    value={menu}
+                                    onChange={(e) => handleSubMenuChange(index, e.target.value)}
+                                    placeholder={index === 0 ? '기타 메뉴 추가' : '기타 메뉴 추가'}
+                                />
+                            </React.Fragment>
+                        ))}
+                    </div>
+                    <img onClick={addSubMenu} id="addInputBtn" className="addbtn" src={addMenuImage} alt="add"/>
                 </div>
-                <hr />
-                <hr />
-                <hr />
-                <div>
-                    <input className="button" type="submit" value="저장" />
-                </div>
+                <input className="submit" type="submit" value="저장"/>
             </form>
         </div>
     );
