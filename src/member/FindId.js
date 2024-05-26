@@ -2,6 +2,7 @@ import React from 'react';
 import './Style.css';
 // import { Link } from 'react-router-dom';
 import logoImage from '../img/semohan-logo.png';
+import {Link} from "react-router-dom";
 
 function FindId() {
 
@@ -17,7 +18,9 @@ function FindId() {
                     <input className="certi" type="button" value="인증번호"/>
                 </div>
                 <input className="blank" type="number" name="certificationNum"/>
-                <input className="submit" type="submit" value="아이디 찾기"/>
+                <div className="find">
+                    <Link to="/resultId">아이디 찾기</Link>
+                </div>
             </form>
         </div>
     );

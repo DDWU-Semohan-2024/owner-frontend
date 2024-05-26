@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import logoImage from '../img/semohan-logo.png';
 
 function Login() {
+
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
@@ -17,6 +18,7 @@ function Login() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+
         console.log('Username:', username);
         console.log('Password:', password);
         // 로그인 처리 등의 로직 추가
@@ -45,7 +47,7 @@ function Login() {
                 <div className="loginLink">
                     <Link to="/findId">아이디 찾기</Link>
                     <Link to="/newPassword">비밀번호 재설정</Link>
-                    <Link to="/register">회원가입</Link>
+                    <Link to="/registerMenu">회원가입 문의</Link>
                 </div>
             </form>
         </div>
