@@ -17,7 +17,7 @@ function Login() {
         setPassword(event.target.value);
     };
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
 
         console.log('Username:', username);
@@ -28,7 +28,11 @@ function Login() {
             username,
             password,
         };
-        const response = axios.post("/auth/sign-in", data);
+
+        const response = axios.post("/auth/sign-in", data, {
+            withCredentials: true
+        });
+        
 
         console.log(response);
 
