@@ -2,6 +2,8 @@ import React from 'react';
 import './Style.css'; // CSS 파일을 import
 import { Link } from 'react-router-dom';
 import logoImage from '../img/semohan-logo.png';
+import triangle from '../img/free-icon-triangle-649731.png'
+import edit from '../img/edit.png'
 
 function ViewMenu() {
     const menuData = [
@@ -12,23 +14,19 @@ function ViewMenu() {
             <header>
                 <img src={logoImage} alt="logo"/>
             </header>
-            <table>
-            <caption>
-                    <button id="last" type="button">
-                        <img src="../img/free-icon-triangle-649731.png" alt="저번주" onClick={() => console.log('저번주 버튼 클릭')} />
-                    </button>
-                    날짜
-                    <button id="next" type="button">
-                        <img src="../img/free-icon-triangle-649731.png" alt="다음주" onClick={() => console.log('다음주 버튼 클릭')} />
-                    </button>
+            <table id="viewMenu">
+                <caption>
+                    <img className="last" src={triangle} alt="저번주" onClick={() => console.log('저번주 버튼 클릭')}/>
+                    <div>날짜 {/*선택 날짜*/}</div>
+                    <img className="next" src={triangle} alt="다음주" onClick={() => console.log('다음주 버튼 클릭')}/>
                 </caption>
                 <thead>
-                <tr>
-                    <th>요일</th>
-                    <th>메인 메뉴</th>
-                    <th>반찬</th>
-                    <th>수정</th>
-                </tr>
+                    <tr>
+                        <th>요일</th>
+                        <th>메인 메뉴</th>
+                        <th>반찬</th>
+                        <th>수정</th>
+                    </tr>
                 </thead>
                 <tbody>
                 {/* 데이터 배열을 map() 함수를 사용하여 동적으로 행을 생성 */}
@@ -37,11 +35,12 @@ function ViewMenu() {
                         <td>{item.day}</td>
                         <td>{item.mainMenu}</td>
                         <td>{item.sideDish}</td>
-                        <td><img src="../img/edit.png" alt="수정" /></td>
+                        <td><Link to="/updateMenu"><img className="edit" src={edit} alt="수정"/></Link></td>
                     </tr>
                 ))}
                 </tbody>
             </table>
+            <Link className="submit" to="/updateMenu">메뉴 등록</Link>
         </div>
     );
 }
