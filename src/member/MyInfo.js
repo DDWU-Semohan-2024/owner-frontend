@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Style.css'; // CSS 파일을 import
 import logoImage from '../img/semohan-logo.png';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function MyInfoPage() {
     const [ownerInfo, setOwnerInfo] = useState({
@@ -9,6 +10,8 @@ function MyInfoPage() {
         userName: '',
         phoneNumber: ''
     });
+
+    const navigate = useNavigate(); // useNavigate 훅 사용
 
     useEffect(() => {
         // /restaurant/info로 GET 요청을 보내고 데이터를 받아옴
@@ -26,11 +29,14 @@ function MyInfoPage() {
         fetchOwnerInfo();
     }, []);
 
+    const handleUpdateInfo = () => {
+        navigate('/updateInfo');
+    };
 
     return (
         <div id="body">
             <header>
-                <img src={logoImage} alt="logo" />
+                <img src={logoImage} alt="logo"/>
             </header>
             <table>
                 <caption>나의 정보</caption>
@@ -49,7 +55,7 @@ function MyInfoPage() {
                 </tr>
                 </tbody>
             </table>
-            <input className="submit" type="button" value="정보 수정" />
+            <input className="submit" type="button" value="정보 수정" onClick={handleUpdateInfo}/>
         </div>
     );
 }
