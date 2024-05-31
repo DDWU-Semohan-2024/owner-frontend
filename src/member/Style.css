@@ -36,15 +36,6 @@
         align-items: center;
     }
 
-    /*header > button {*/
-    /*    width: fit-content;*/
-    /*    height: fit-content;*/
-    /*    border-radius: var(--radius);*/
-    /*    border: none;*/
-    /*    padding: 10px;*/
-    /*    font-size: 10px;*/
-    /*}*/
-
     .blank {
         background-color: var(--graycolor);
         border: none;
