@@ -3,7 +3,7 @@ import './Style.css';
 import logoImage from '../img/semohan-logo.png';
 import addMenuImage from '../img/free-icon-add-992651.png';
 
-function UpdateMenu() {
+function RegisterMenu() {
     const [year, setYear] = useState(new Date().getFullYear());
     const [month, setMonth] = useState(new Date().getMonth() + 1);
     const [date, setDate] = useState(new Date().getDate());
@@ -155,4 +155,4 @@ function UpdateMenu() {
     );
 }
 
-export default UpdateMenu;
+export default RegisterMenu;

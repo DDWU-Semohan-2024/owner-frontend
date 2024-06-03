@@ -1,12 +1,13 @@
 import React, {useEffect, useState} from "react";
 import './Style.css'; // CSS 파일을 import
 import axios from 'axios';
-// import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import logoImage from '../img/semohan-logo.png';
 
 function RestaurantInfo() {
 
     const [restaurant, setRestaurant] = useState(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         axios.get("/restaurant/info", {
@@ -60,7 +61,9 @@ function RestaurantInfo() {
                     </tr>
                 </tbody>
             </table>
-            <input className="submit" type="button" value="정보 수정"/>
+
+            <input className="submit" type="button" value="정보 수정"
+                   onClick={() => navigate('/updateRestaurant', { state: { restaurant } })} />
         </div>
     );
 
