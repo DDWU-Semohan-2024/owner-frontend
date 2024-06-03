@@ -12,7 +12,7 @@ import RestaurantInfo from "./member/RestaurantInfo";
 import UpdateRestaurant from "./member/UpdateRestaurant";
 import UpdateMenu from "./member/UpdateMenu";
 import UpdateInfo from "./member/UpdateInfo";
-import NewPassword from "./member/NewPassword";
+import ResetPassword from "./member/ResetPassword";
 import RegisterMenu from "./member/RegisterMenu";
 import GeneratePassword from "./member/GeneratePassword";
 
@@ -32,7 +32,7 @@ class App extends Component {
             <Route exact path="/viewMenu" element={<ViewMenu />} />
             <Route exact path="/updateMenu" element={<UpdateMenu />} />
             <Route exact path="/updateInfo" element={<UpdateInfo />} />
-            <Route exact path="/newPassword" element={<NewPassword />} />
+            <Route exact path="/resetPassword" element={<ResetPassword />} />
             <Route exact path="/updateRestaurant" element={<UpdateRestaurant />} />
             <Route exact path="/registerMenu" element={<RegisterMenu />} />
             <Route exact path="/generatePassword" element={<GeneratePassword />} />
