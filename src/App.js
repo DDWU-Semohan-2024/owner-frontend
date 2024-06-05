@@ -12,10 +12,10 @@ import RestaurantInfo from "./member/RestaurantInfo";
 import UpdateRestaurant from "./member/UpdateRestaurant";
 import UpdateMenu from "./member/UpdateMenu";
 import UpdateInfo from "./member/UpdateInfo";
-import NewPassword from "./member/NewPassword";
+import ResetPassword from "./member/ResetPassword";
 import RegisterMenu from "./member/RegisterMenu";
 import GeneratePassword from "./member/GeneratePassword";
-
+import AskRegister from "./member/AskRegister";
 class App extends Component {
   render() {
     return (
@@ -32,11 +32,11 @@ class App extends Component {
             <Route exact path="/viewMenu" element={<ViewMenu />} />
             <Route exact path="/updateMenu" element={<UpdateMenu />} />
             <Route exact path="/updateInfo" element={<UpdateInfo />} />
-            <Route exact path="/newPassword" element={<NewPassword />} />
+            <Route exact path="/resetPassword" element={<ResetPassword />} />
             <Route exact path="/updateRestaurant" element={<UpdateRestaurant />} />
             <Route exact path="/registerMenu" element={<RegisterMenu />} />
             <Route exact path="/generatePassword" element={<GeneratePassword />} />
-
+            <Route exact path="/askRegister" element={<AskRegister />} />
 
             {/*<Route path="/" element={<Login />} /> /!* 기본적으로 /login으로 이동 *!/*/}
           </Routes>
