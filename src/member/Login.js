@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import "./Style.css"; // CSS 파일을 import
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import logoImage from '../img/semohan-logo.png';
 import axios from "axios";
 
@@ -8,6 +8,7 @@ function Login() {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate(); // useNavigate 훅 사용
 
     const handleUsernameChange = (event) => {
         setUsername(event.target.value);
@@ -29,18 +30,24 @@ function Login() {
             password,
         };
 
-        const response = axios.post("/auth/sign-in", data, {
-            withCredentials: true
-        });
-        
+        try {
+            const response = await axios.post("/auth/sign-in", data, {
+                withCredentials: true
+            });
 
-        console.log(response);
+            console.log(response);
 
-        return response;
-
-        // 로그인 버튼 클릭시 입력창 reset
-        // setUsername("");
-        // setPassword("");
+            if (response.status === 200) {
+                // 로그인 성공 시 /main으로 리디렉션
+                navigate("/main");
+            } else {
+                // 로그인 실패 시 처리 로직 추가
+                console.error('로그인 실패:', response.data);
+            }
+        } catch (error) {
+            // 예외 처리
+            console.error('로그인 요청 중 오류 발생:', error);
+        }
     };
 
     return (

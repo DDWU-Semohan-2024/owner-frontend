@@ -1,55 +1,78 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Style.css';
 import logoImage from '../img/semohan-logo.png';
-import lock from "../img/lock.png"
-import beforeCheck from "../img/free-icon-checkmark-656971.png"
+import lock from "../img/lock.png";
+import beforeCheck from "../img/free-icon-checkmark-656971.png";
+import axios from 'axios';
 
 function UpdateInfo() {
     const [formData, setFormData] = useState({
         name: '',
         phoneNum: '',
         password: '',
-        passwordCheck: '',
-        restaurantPhoto: ''
+        passwordCheck: ''
     });
 
+    const [errorMessage, setErrorMessage] = useState('');
+    const navigate = useNavigate();
 
-    const [selectedFile, setSelectedFile] = useState(null);
+    useEffect(() => {
+        // /owner/info로 GET 요청을 보내고 데이터를 받아옴
+        const fetchOwnerInfo = async () => {
+            try {
+                const response = await axios.get('/owner/info', {
+                    withCredentials: true
+                });
+                setFormData({
+                    ...formData,
+                    name: response.data.name,
+                    phoneNum: response.data.phoneNumber
+                });
+            } catch (error) {
+                console.error('Error fetching owner info:', error);
+            }
+        };
+
+        fetchOwnerInfo();
+    }, []);
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({
             ...formData,
             [name]: value,
         });
+        setErrorMessage(''); // 입력 중에 에러 메시지 초기화
     };
 
-    const handleFileChange = (e) => {
-        setSelectedFile(e.target.files[0]);
-    };
-
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Handle form submission logic here
-        console.log(formData);
 
+        if (formData.password !== formData.passwordCheck) {
+            setErrorMessage('비밀번호가 일치하지 않습니다.');
+            return;
+        }
 
+        const updatedData = {
+            name: formData.name,
+            phoneNum: formData.phoneNum,
+            password: formData.password,
+        };
 
-        if (selectedFile) {
-            const formData = new FormData();
-            formData.append('file', selectedFile);
+        try {
+            const response = await axios.post('/owner/edit-info', updatedData, {
+                withCredentials: true
+            });
 
-            // Example: Send file to the server
-            fetch('/upload', {
-                method: 'POST',
-                body: formData,
-            })
-                .then(response => response.json())
-                .then(data => {
-                    console.log('Success:', data);
-                })
-                .catch((error) => {
-                    console.error('Error:', error);
-                });
+            if (response.status === 200) {
+                navigate('/myInfo');
+            } else {
+                setErrorMessage('정보 수정에 실패했습니다.');
+            }
+        } catch (error) {
+            console.error('Error updating info:', error);
+            setErrorMessage('정보 수정 중 오류가 발생했습니다.');
         }
     };
 
@@ -60,26 +83,25 @@ function UpdateInfo() {
             </header>
 
             <form id="updateInfo" method="post" action="" onSubmit={handleSubmit}>
-                <label htmlFor="name">기존 이름</label>
+                <label htmlFor="name">이름</label>
                 <input
-                        className="blank"
-                        type="text"
-                        name="name"
-                        id="name"
-                        value={formData.name}
-                        placeholder={formData.name}
-                        onChange={handleChange}
+                    className="blank"
+                    type="text"
+                    name="name"
+                    id="name"
+                    value={formData.name}
+                    readOnly // 이름은 고정된 값으로 설정
                 />
 
                 <label htmlFor="phoneNum">휴대전화</label>
                 <input
-                        className="blank"
-                        type="text"
-                        name="phoneNum"
-                        id="phoneNumOriginal"
-                        value={formData.phoneNum}
-                        placeholder="기존 전화번호"
-                        onChange={handleChange}
+                    className="blank"
+                    type="text"
+                    name="phoneNum"
+                    id="phoneNumOriginal"
+                    value={formData.phoneNum}
+                    placeholder="기존 전화번호"
+                    onChange={handleChange}
                 />
 
                 <label htmlFor="password">비밀번호</label>
@@ -107,6 +129,9 @@ function UpdateInfo() {
                     />
                     <img src={beforeCheck} alt="beforeCheck"/>
                 </div>
+
+                {errorMessage && <p className="error-message">{errorMessage}</p>}
+
                 <input className="submit" type="submit" value="저장"/>
             </form>
         </div>
