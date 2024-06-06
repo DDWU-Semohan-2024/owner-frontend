@@ -13,7 +13,6 @@ import UpdateRestaurant from "./member/UpdateRestaurant";
 import UpdateMenu from "./member/UpdateMenu";
 import UpdateInfo from "./member/UpdateInfo";
 import NewPassword from "./member/NewPassword";
-import RegisterMenu from "./member/RegisterMenu";
 import GeneratePassword from "./member/GeneratePassword";
 
 class App extends Component {
@@ -34,7 +33,6 @@ class App extends Component {
             <Route exact path="/updateInfo" element={<UpdateInfo />} />
             <Route exact path="/newPassword" element={<NewPassword />} />
             <Route exact path="/updateRestaurant" element={<UpdateRestaurant />} />
-            <Route exact path="/registerMenu" element={<RegisterMenu />} />
             <Route exact path="/generatePassword" element={<GeneratePassword />} />
 
 

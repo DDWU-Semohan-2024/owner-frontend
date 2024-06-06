@@ -305,6 +305,7 @@
     #viewMenu tr {
         border-top: 1px solid black;
         height: 50px;
+        text-align: center;
     }
 
     #viewMenu th,
@@ -348,7 +349,6 @@
     .edit {
         width: 30px;
         height: 30px;
-        padding-left: 20px;
     }
 
 }
