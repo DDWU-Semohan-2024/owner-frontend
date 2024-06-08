@@ -66,7 +66,7 @@ function Login() {
                 <input className="submit" type="submit" value="로그인"/>
                 <div className="loginLink">
                     <Link to="/findId">아이디 찾기</Link>
-                    <Link to="/newPassword">비밀번호 재설정</Link>
+                    <Link to="/resetPassword">비밀번호 재설정</Link>
                     <Link to="/comingSoon">회원가입 문의</Link>
                 </div>
             </form>
