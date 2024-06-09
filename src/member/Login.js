@@ -67,7 +67,7 @@ function Login() {
                 <div className="loginLink">
                     <Link to="/findId">아이디 찾기</Link>
                     <Link to="/newPassword">비밀번호 재설정</Link>
-                    <Link to="/">회원가입 문의</Link>
+                    <Link to="/comingSoon">회원가입 문의</Link>
                 </div>
             </form>
         </div>

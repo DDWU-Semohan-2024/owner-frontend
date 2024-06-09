@@ -2,6 +2,8 @@ import './App.css';
 import React, { Component } from "react";
 import {useState, useEffect} from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import Login from "./member/Login";
 import FindId from "./member/FindId";
 import MyInfo from "./member/MyInfo";
@@ -14,6 +16,7 @@ import UpdateMenu from "./member/UpdateMenu";
 import UpdateInfo from "./member/UpdateInfo";
 import NewPassword from "./member/NewPassword";
 import GeneratePassword from "./member/GeneratePassword";
+import ComingSoon from "./member/ComingSoon";
 
 class App extends Component {
   render() {
@@ -34,6 +37,7 @@ class App extends Component {
             <Route exact path="/newPassword" element={<NewPassword />} />
             <Route exact path="/updateRestaurant" element={<UpdateRestaurant />} />
             <Route exact path="/generatePassword" element={<GeneratePassword />} />
+            <Route exact path="/comingSoon" element={<ComingSoon />} />
 
 
             {/*<Route path="/" element={<Login />} /> /!* 기본적으로 /login으로 이동 *!/*/}
