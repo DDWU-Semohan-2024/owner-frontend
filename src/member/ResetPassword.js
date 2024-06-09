@@ -3,7 +3,7 @@ import './Style.css';
 import logoImage from '../img/semohan-logo.png';
 import lock from "../img/lock.png"
 import beforeCheck from "../img/free-icon-checkmark-656971.png"
-function NewPassword() {
+function ResetPassword() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [passwordCheck, setPasswordCheck] = useState('');
@@ -35,31 +35,31 @@ function NewPassword() {
                     onChange={(e) => setUsername(e.target.value)}
                 />
 
-                <label htmlFor="password">비밀번호</label>
-                <div id="containImg">
-                    <input
-                        className="blank"
-                        type="password"
-                        name="pwd"
-                        id="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
-                    <img src={lock} alt="lock"/>
-                </div>
+                {/*<label htmlFor="password">비밀번호</label>*/}
+                {/*<div id="containImg">*/}
+                {/*    <input*/}
+                {/*        className="blank"*/}
+                {/*        type="password"*/}
+                {/*        name="pwd"*/}
+                {/*        id="password"*/}
+                {/*        value={password}*/}
+                {/*        onChange={(e) => setPassword(e.target.value)}*/}
+                {/*    />*/}
+                {/*    <img src={lock} alt="lock"/>*/}
+                {/*</div>*/}
 
 
-                <label htmlFor="passwordCheck">비밀번호 재확인</label>
-                <div id="containImg">
-                    <input
-                        className="blank"
-                        type="password"
-                        id="passwordCheck"
-                        value={passwordCheck}
-                        onChange={(e) => setPasswordCheck(e.target.value)}
-                    />
-                    <img src={beforeCheck} alt="check"/>
-                </div>
+                {/*<label htmlFor="passwordCheck">비밀번호 재확인</label>*/}
+                {/*<div id="containImg">*/}
+                {/*    <input*/}
+                {/*        className="blank"*/}
+                {/*        type="password"*/}
+                {/*        id="passwordCheck"*/}
+                {/*        value={passwordCheck}*/}
+                {/*        onChange={(e) => setPasswordCheck(e.target.value)}*/}
+                {/*    />*/}
+                {/*    <img src={beforeCheck} alt="check"/>*/}
+                {/*</div>*/}
 
                 <label htmlFor="phoneNum">휴대전화</label>
                 <div className="certification">
@@ -81,4 +81,4 @@ function NewPassword() {
     );
 }
 
-export default NewPassword;
+export default ResetPassword;
