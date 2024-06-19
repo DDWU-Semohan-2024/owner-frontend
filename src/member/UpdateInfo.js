@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import './Style.css';
 import logoImage from '../img/semohan-logo.png';
 import lock from "../img/lock.png";
@@ -79,7 +79,7 @@ function UpdateInfo() {
     return (
         <div id="body">
             <header>
-                <img src={logoImage} alt="logo" />
+                <Link to="/main"><img src={logoImage} alt="logo"/></Link>
             </header>
 
             <form id="updateInfo" method="post" action="" onSubmit={handleSubmit}>

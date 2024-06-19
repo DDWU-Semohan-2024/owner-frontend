@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Style.css';
 import logoImage from '../img/semohan-logo.png';
-import { useLocation } from 'react-router-dom';
+import {Link, useLocation} from 'react-router-dom';
 import axios from "axios";
 
 function UpdateRestaurant() {
@@ -145,7 +145,7 @@ function UpdateRestaurant() {
     return (
         <div id="body">
             <header>
-                <img src={logoImage} alt="logo" />
+                <Link to="/main"><img src={logoImage} alt="logo"/></Link>
             </header>
             <form id="updateRestaurant" onSubmit={handleSubmit}>
                 <label htmlFor="address">주소</label>

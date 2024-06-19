@@ -20,7 +20,7 @@ function Main() {
     return (
         <div id="body">
             <header>
-                <img src={logoImage} alt="logo"/>
+                <Link to="/main"><img src={logoImage} alt="logo"/></Link>
             </header>
             <div className="mainLink">
                 <Link className="gray" to="/myInfo">나의 정보</Link>
