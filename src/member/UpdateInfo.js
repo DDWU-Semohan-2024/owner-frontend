@@ -6,6 +6,8 @@ import lock from "../img/lock.png";
 import beforeCheck from "../img/free-icon-checkmark-656971.png";
 import axios from 'axios';
 
+axios.defaults.withCredentials = true;
+
 function UpdateInfo() {
     const [formData, setFormData] = useState({
         name: '',
