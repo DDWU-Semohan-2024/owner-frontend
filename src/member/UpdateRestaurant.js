@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import './Style.css';
 import logoImage from '../img/semohan-logo.png';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate  } from 'react-router-dom';
 import axios from "axios";
 
 function UpdateRestaurant() {
     const location = useLocation();
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         phoneNumber: '',
         address: '',
@@ -109,33 +110,32 @@ function UpdateRestaurant() {
         e.preventDefault();
 
         try {
-            let imageUrl = formData.image;
+            const data = new FormData();
+            data.append('restaurantInfoUpdateDto', new Blob([JSON.stringify({
+                phoneNumber: formData.phoneNumber,
+                address: formData.address,
+                detailedAddress: formData.detailedAddress,
+                businessHours: formData.businessHours,
+                price: formData.price,
+                postcode: formData.postcode
+            })], { type: "application/json" }));
 
             if (selectedFile) {
-                const fileData = new FormData();
-                fileData.append('file', selectedFile);
-
-                // Add authorization header if needed
-                const uploadResponse = await axios.post("http://localhost:8088/s3/upload", fileData, {
-                    headers: {
-                        'Content-Type': 'multipart/form-data',
-                        // Add your authorization token here if needed
-                        'Authorization': `Bearer YOUR_AUTH_TOKEN`,
-                    }
-                });
-
-                imageUrl = uploadResponse.data.s3Url; // Assuming the response contains a `s3Url` field
-                console.log('File upload success:', imageUrl);
+                data.append('imageFile', selectedFile);
             }
 
-            const updateResponse = await axios.post("/restaurant/updateInfo", {
-                ...formData,
-                image: imageUrl
-            }, {
+            const updateResponse = await axios.post("/restaurant/updateInfo", data, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
                 withCredentials: true
             });
 
             console.log('Update response:', updateResponse.data);
+
+            // 요청이 성공적으로 완료된 후 /restaurantInfo로 이동
+            navigate('/restaurantInfo');
+
         } catch (error) {
             console.error('Error:', error);
         }

@@ -57,8 +57,7 @@ function UpdateInfo() {
         }
 
         const updatedData = {
-            name: formData.name,
-            phoneNum: formData.phoneNum,
+            phoneNumber: formData.phoneNum,
             password: formData.password,
         };
 
