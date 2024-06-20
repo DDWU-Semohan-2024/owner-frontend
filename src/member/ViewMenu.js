@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './Style.css'; // CSS 파일을 import
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import Header from './Header';
 import logoImage from '../img/semohan-logo.png';
 import triangle from '../img/free-icon-triangle-649731.png';
 import edit from '../img/edit.png';
@@ -11,7 +12,7 @@ function ViewMenu() {
     const [weekIndex, setWeekIndex] = useState(0);
 
     const fetchMenuData = () => {
-        axios.get('/menu/' + weekIndex, {
+        axios.get('/menu/week/' + weekIndex, {
             withCredentials: true
         })
             .then(response => {
@@ -23,8 +24,16 @@ function ViewMenu() {
     };
 
     useEffect(() => {
-        fetchMenuData();
+        if (performance.getEntriesByType("navigation")[0].type === "reload") {
+            // 캐시를 우회한 새로고침
+            window.location.href = window.location.href;
+            fetchMenuData();
+        }
     }, []);
+
+    // useEffect(() => {
+    //     fetchMenuData();
+    // }, []);
 
     const handlePreviousWeekClick = () => {
         setWeekIndex(prevWeekIndex => prevWeekIndex - 1);
@@ -40,9 +49,7 @@ function ViewMenu() {
 
     return (
         <div id="body">
-            <header>
-                <img src={logoImage} alt="logo" />
-            </header>
+            <Header />
 
 
             {/*/!* 데이터가 없을 경우 *!/*/}
@@ -74,7 +81,7 @@ function ViewMenu() {
                                 <td>{item.mainMenu}</td>
                                 <td>{item.subMenu}</td>
                                 <td>
-                                    <Link to="/updateMenu">
+                                    <Link to={`/updateMenu/${item.id}`}>
                                         <img className="edit" src={edit} alt="수정" />
                                     </Link>
                                 </td>
@@ -84,7 +91,7 @@ function ViewMenu() {
                     </table>
             {/*    </>*/}
             {/*)}*/}
-            <Link className="submit" to="/updateMenu">메뉴 등록</Link>
+            <Link className="submit" to="/registerMenu">메뉴 등록</Link>
         </div>
     );
 }

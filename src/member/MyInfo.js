@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Style.css'; // CSS 파일을 import
 import logoImage from '../img/semohan-logo.png';
 import axios from 'axios';
+import Header from './Header';
 import { useNavigate } from 'react-router-dom';
 
 function MyInfoPage() {
@@ -35,9 +36,7 @@ function MyInfoPage() {
 
     return (
         <div id="body">
-            <header>
-                <img src={logoImage} alt="logo"/>
-            </header>
+            <Header />
             <table>
                 <caption>나의 정보</caption>
                 <tbody>

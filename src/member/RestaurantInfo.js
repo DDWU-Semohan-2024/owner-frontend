@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import './Style.css'; // CSS 파일을 import
 import axios from 'axios';
+import Header from './Header';
 import { useNavigate } from 'react-router-dom';
 import logoImage from '../img/semohan-logo.png';
 
@@ -29,9 +30,8 @@ function RestaurantInfo() {
 
     return (
         <div id="body">
-            <header>
-                <img src={logoImage} alt="logo"/>
-            </header>
+            <Header />
+            
             <table>
                 <caption>식당 정보</caption>
                 <tbody>
