@@ -2,6 +2,7 @@ import React from 'react';
 import './Style.css'; // CSS 파일을 import
 import { Link, } from 'react-router-dom';
 import axios from 'axios';
+import Header from './Header';  
 import logoImage from '../img/semohan-logo.png';
 
 axios.defaults.withCredentials = true;
@@ -19,15 +20,13 @@ function Main() {
 
     return (
         <div id="body">
-            <header>
-                <img src={logoImage} alt="logo"/>
-            </header>
+            <Header />
+
             <div className="mainLink">
                 <Link className="gray" to="/myInfo">나의 정보</Link>
                 <Link className="gray" to="/restaurantInfo">식당 정보</Link>
                 <Link className="lemon" to="/viewMenu">메뉴 등록</Link>
-
-                <Link className="gray" to="/">비즈니스</Link>
+                <Link className="gray" to="/comingSoon">비즈니스</Link>
                 <Link className="gray" onClick={handleLogout}>로그아웃</Link>
 
             </div>

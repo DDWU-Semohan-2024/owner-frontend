@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate  } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './Style.css';
 import axios from 'axios';
 import Header from './Header';
 import logoImage from '../img/semohan-logo.png';
 import addMenuImage from '../img/free-icon-add-992651.png';
 
-function UpdateMenu() {
-    const { id } = useParams();
+function RegisterMenu() {
     const navigate = useNavigate();
     const [year, setYear] = useState(new Date().getFullYear());
     const [month, setMonth] = useState(new Date().getMonth() + 1);
@@ -19,23 +18,12 @@ function UpdateMenu() {
     const maxMainMenus = 2; /*메인메뉴 최대 개수 지정*/
 
     useEffect(() => {
-        if (id) {
-            axios.get(`/menu/${id}`, { withCredentials: true })
-                .then(response => {
-                    const { mealDate, mealType, mainMenus = [''], subMenus = ['', ''] } = response.data;
-                    const dateObj = new Date(mealDate);
-                    setYear(dateObj.getFullYear());
-                    setMonth(dateObj.getMonth() + 1);
-                    setDate(dateObj.getDate());
-                    setMealType(mealType || '');
-                    setMainMenus(mainMenus);
-                    setSubMenus(subMenus);
-                })
-                .catch(error => {
-                    console.error('Error fetching menu data:', error);
-                });
-        }
-    }, [id]);
+        // 초기 날짜 설정
+        const today = new Date();
+        setYear(today.getFullYear());
+        setMonth(today.getMonth() + 1);
+        setDate(today.getDate());
+    }, []);
 
     const addMainMenu = (e) => {
         e.preventDefault();
@@ -73,22 +61,22 @@ function UpdateMenu() {
         const menuData = {
             mealDate,
             mealType,
-            mainMenu: mainMenus, // mainMenu로 필드명 수정
-            subMenu: subMenus,   // subMenu로 필드명 수정
+            mainMenu: mainMenus,
+            subMenu: subMenus,
         };
 
-        axios.put(`/menu/${id}`, menuData, { withCredentials: true })
+        axios.post('/menu/new-menu', menuData, { withCredentials: true })
             .then(response => {
                 if (response.status === 200 && response.data === true) {
-                    alert('메뉴가 성공적으로 업데이트되었습니다.');
-                    navigate('/viewMenu');
+                    alert('메뉴가 성공적으로 등록되었습니다.');
+                    navigate('/viewMenu'); // 성공 시 /viewMenu로 이동
                 } else {
-                    alert('메뉴 업데이트에 실패했습니다.');
+                    alert('메뉴 등록에 실패했습니다.');
                 }
             })
             .catch(error => {
-                console.error('메뉴 업데이트 중 오류 발생:', error);
-                alert('메뉴 업데이트 중 오류가 발생했습니다.');
+                console.error('메뉴 등록 중 오류 발생:', error);
+                alert('메뉴 등록 중 오류가 발생했습니다.');
             });
     };
 
@@ -167,4 +155,4 @@ function UpdateMenu() {
     );
 }
 
-export default UpdateMenu;
+export default RegisterMenu;

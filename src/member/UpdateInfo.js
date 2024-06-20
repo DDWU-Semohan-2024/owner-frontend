@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Style.css';
 import logoImage from '../img/semohan-logo.png';
+import Header from './Header';
 import lock from "../img/lock.png";
 import beforeCheck from "../img/free-icon-checkmark-656971.png";
 import axios from 'axios';
@@ -57,8 +58,7 @@ function UpdateInfo() {
         }
 
         const updatedData = {
-            name: formData.name,
-            phoneNum: formData.phoneNum,
+            phoneNumber: formData.phoneNum,
             password: formData.password,
         };
 
@@ -80,9 +80,7 @@ function UpdateInfo() {
 
     return (
         <div id="body">
-            <header>
-                <img src={logoImage} alt="logo" />
-            </header>
+            <Header />
 
             <form id="updateInfo" method="post" action="" onSubmit={handleSubmit}>
                 <label htmlFor="name">이름</label>
