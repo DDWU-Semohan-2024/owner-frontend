@@ -36,6 +36,17 @@
         align-items: center;
     }
 
+    header > img {
+        width: 150px;
+        height: fit-content;
+        align-items: center;
+    }
+
+    .headerImg {
+        width: 40px;
+        height: fit-content;
+    }
+
     .blank {
         background-color: var(--graycolor);
         border: none;
@@ -190,11 +201,14 @@
         font-size: var(--mainfontsize);
     }
 
-    caption {
+    caption,
+    #caption {
         text-decoration: underline;
         font-size: var(--mainfontsize);
         margin-bottom: 30px;
         margin-top: 30px;
+        caption-side: top;
+        text-align: center;
     }
 
     tr {
