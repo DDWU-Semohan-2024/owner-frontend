@@ -1,14 +1,17 @@
-
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Style.css';
+import axios from 'axios';
+import Header from './Header';
 import logoImage from '../img/semohan-logo.png';
 import addMenuImage from '../img/free-icon-add-992651.png';
-import {Link} from "react-router-dom";
 
-function UpdateMenu() {
+function RegisterMenu() {
+    const navigate = useNavigate();
     const [year, setYear] = useState(new Date().getFullYear());
     const [month, setMonth] = useState(new Date().getMonth() + 1);
     const [date, setDate] = useState(new Date().getDate());
+    const [mealType, setMealType] = useState('');
     const [mainMenus, setMainMenus] = useState(['']);
     const [subMenus, setSubMenus] = useState(['', '']);
     const maxSubMenus = 10; /*기타메뉴 최대 개수 지정*/
@@ -24,7 +27,7 @@ function UpdateMenu() {
 
     const addMainMenu = (e) => {
         e.preventDefault();
-        if (mainMenus.length < 2) {
+        if (mainMenus.length < maxMainMenus) {
             setMainMenus([...mainMenus, '']);
         } else {
             alert(`최대 ${maxMainMenus}개까지 추가 가능합니다.`);
@@ -33,15 +36,11 @@ function UpdateMenu() {
 
     const addSubMenu = (e) => {
         e.preventDefault();
-        // setSubMenus([...subMenus, '']);
-
-        if (subMenus.length + 1 <= maxSubMenus) {
-            setSubMenus([...subMenus, '']); //메뉴 추가
-
+        if (subMenus.length < maxSubMenus) {
+            setSubMenus([...subMenus, '']);
         } else {
             alert(`최대 ${maxSubMenus}개까지 추가 가능합니다.`);
         }
-        // alert(subMenus.length+1); 개수확인
     };
 
     const handleMainMenuChange = (index, value) => {
@@ -58,22 +57,32 @@ function UpdateMenu() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // 여기서 폼 데이터를 처리합니다.
-        console.log({
-            year,
-            month,
-            date,
-            mealType: e.target.mealType.value,
-            mainMenus,
-            subMenus,
-        });
+        const mealDate = new Date(year, month - 1, date).toISOString().split('T')[0]; // 포맷을 맞춘 식사 날짜
+        const menuData = {
+            mealDate,
+            mealType,
+            mainMenu: mainMenus,
+            subMenu: subMenus,
+        };
+
+        axios.post('/menu/new-menu', menuData, { withCredentials: true })
+            .then(response => {
+                if (response.status === 200 && response.data === true) {
+                    alert('메뉴가 성공적으로 등록되었습니다.');
+                    navigate('/viewMenu'); // 성공 시 /viewMenu로 이동
+                } else {
+                    alert('메뉴 등록에 실패했습니다.');
+                }
+            })
+            .catch(error => {
+                console.error('메뉴 등록 중 오류 발생:', error);
+                alert('메뉴 등록 중 오류가 발생했습니다.');
+            });
     };
 
     return (
         <div id="body">
-            <header>
-                <Link to="/main"><img src={logoImage} alt="logo"/></Link>
-            </header>
+            <Header />
 
             <form id="updateMenu" method="post" action="" onSubmit={handleSubmit}>
                 <label>날짜</label>
@@ -84,7 +93,7 @@ function UpdateMenu() {
                     </select>
 
                     <select id="month" value={month} onChange={(e) => setMonth(e.target.value)}>
-                        {Array.from({length: 12}, (_, i) => i + 1).map((m) => (
+                        {Array.from({ length: 12 }, (_, i) => i + 1).map((m) => (
                             <option key={m} value={m}>
                                 {m}월
                             </option>
@@ -92,7 +101,7 @@ function UpdateMenu() {
                     </select>
 
                     <select id="date" value={date} onChange={(e) => setDate(e.target.value)}>
-                        {Array.from({length: 31}, (_, i) => i + 1).map((d) => (
+                        {Array.from({ length: 31 }, (_, i) => i + 1).map((d) => (
                             <option key={d} value={d}>
                                 {d}일
                             </option>
@@ -101,7 +110,7 @@ function UpdateMenu() {
                 </div>
 
                 <label>구분</label>
-                <select name="mealType" >
+                <select name="mealType" value={mealType} onChange={(e) => setMealType(e.target.value)}>
                     <option value="점심">점심</option>
                     <option value="저녁">저녁</option>
                 </select>
@@ -121,7 +130,7 @@ function UpdateMenu() {
                             />
                         ))}
                     </div>
-                    <img onClick={addMainMenu} id="addInputBtn" className="addbtn" src={addMenuImage} alt="add"/>
+                    <img onClick={addMainMenu} id="addInputBtn" className="addbtn" src={addMenuImage} alt="add" />
 
                     <label>기타 메뉴</label>
                     <div id="addSubMenu">
@@ -138,12 +147,12 @@ function UpdateMenu() {
                             </React.Fragment>
                         ))}
                     </div>
-                    <img onClick={addSubMenu} id="addInputBtn" className="addbtn" src={addMenuImage} alt="add"/>
+                    <img onClick={addSubMenu} id="addInputBtn" className="addbtn" src={addMenuImage} alt="add" />
                 </div>
-                <input className="submit" type="submit" value="저장"/>
+                <input className="submit" type="submit" value="저장" />
             </form>
         </div>
     );
 }
 
-export default UpdateMenu;
+export default RegisterMenu;
