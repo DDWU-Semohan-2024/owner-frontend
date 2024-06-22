@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Style.css';
 import logoImage from '../img/semohan-logo.png';
+import Header from './Header';
 import lock from "../img/lock.png";
 import beforeCheck from "../img/free-icon-checkmark-656971.png";
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -161,6 +162,9 @@ function UpdateInfo() {
         }
 
         const updatedData = {
+
+            phoneNumber: formData.phoneNum,
+
             password: formData.password,
             repeatedPassword: passwordCheck,
             nickname: formData.nickname || existingData.nickname,
@@ -203,9 +207,7 @@ function UpdateInfo() {
 
     return (
         <div id="body">
-            <header>
-                <img src={logoImage} alt="logo" />
-            </header>
+            <Header />
 
             <form id="updateInfo" method="post" action="" onSubmit={handleSubmit}>
                 <label htmlFor="nickname">닉네임</label>

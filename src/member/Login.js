@@ -41,13 +41,15 @@ function Login() {
                 // 로그인 성공 시 /main으로 리디렉션
                 navigate("/main");
             } else {
-                // 로그인 실패 시 처리 로직 추가
-                console.error('로그인 실패:', response.data);
+                // 로그인 실패 시 alert 창으로 메시지 표시
+                alert(response.data.message);
             }
         } catch (error) {
             // 예외 처리
             console.error('로그인 요청 중 오류 발생:', error);
+            alert('로그인에 실패했습니다.');
         }
+
     };
 
     return (
