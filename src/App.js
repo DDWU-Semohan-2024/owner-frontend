@@ -31,8 +31,13 @@ class App extends Component {
             <Route exact path="/myInfo" element={<MyInfo />} />
             <Route exact path="/resultId" element={<ResultId />} />
             <Route exact path="/viewMenu" element={<ViewMenu />} />
+
+            <Route exact path="/updateMenu" element={<UpdateMenu />} />
+            <Route exact path="/updateMenu/:id" component={UpdateMenu} />
+
             <Route path="/updateMenu/:id" element={<UpdateMenu />} />
             <Route exact path="/registerMenu" element={<RegisterMenu />} />
+
             <Route exact path="/updateInfo" element={<UpdateInfo />} />
             <Route exact path="/resetPassword" element={<ResetPassword />} />
             <Route exact path="/updateRestaurant" element={<UpdateRestaurant />} />

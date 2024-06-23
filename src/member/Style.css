@@ -30,7 +30,8 @@
         margin-bottom: 20px;
     }
 
-    header a img {
+
+    header > a > img {
         width: 150px;
         height: fit-content;
         align-items: center;
@@ -40,6 +41,11 @@
         width: 150px;
         height: fit-content;
         align-items: center;
+    }
+
+    .headerImg {
+        width: 40px;
+        height: fit-content;
     }
 
     .blank {
@@ -196,11 +202,14 @@
         font-size: var(--mainfontsize);
     }
 
-    caption {
+    caption,
+    #caption {
         text-decoration: underline;
         font-size: var(--mainfontsize);
         margin-bottom: 30px;
         margin-top: 30px;
+        caption-side: top;
+        text-align: center;
     }
 
     tr {
@@ -317,7 +326,7 @@
     #viewMenu th,
     #viewMenu td {
         font-size: 15px;
-        width: 70px;
+        width: 15%;
         padding: 0;
     }
 
@@ -328,9 +337,11 @@
     #viewMenu tr > th:first-child,
     #viewMenu tr > th:nth-child(2),
     #viewMenu tr > th:nth-child(3),
+    #viewMenu tr > th:nth-child(4),
     #viewMenu tr > td:first-child,
     #viewMenu tr > td:nth-child(2),
-    #viewMenu tr > td:nth-child(3){
+    #viewMenu tr > td:nth-child(3),
+    #viewMenu tr > td:nth-child(4) {
         border-right: 1px solid black;
         width: 70px;
     }
