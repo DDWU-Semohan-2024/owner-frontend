@@ -2,10 +2,10 @@ import React, {useEffect, useState} from 'react';
 import './Style.css'; // CSS 파일을 import
 import {Link} from 'react-router-dom';
 import axios from 'axios';
-import logoImage from '../img/semohan-logo.png';
 import triangle from '../img/free-icon-triangle-649731.png';
 import edit from '../img/edit.png';
 import remove from '../img/delete.png'
+import Header from "./Header";
 
 function ViewMenu() {
     const [menuData, setMenuData] = useState([]);
@@ -53,9 +53,7 @@ function ViewMenu() {
 
     return (
         <div id="body">
-            <header>
-                <Link to="/main"><img src={logoImage} alt="logo"/></Link>
-            </header>
+            <Header />
 
             {/* 데이터가 있을 경우 */}
             <table id="viewMenu">

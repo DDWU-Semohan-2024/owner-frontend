@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import './Style.css';
-import logoImage from '../img/semohan-logo.png';
 import Header from './Header';
 import lock from "../img/lock.png";
 import beforeCheck from "../img/free-icon-checkmark-656971.png";
@@ -32,7 +31,7 @@ function UpdateInfo() {
 
     useEffect(() => {
         // 기존 회원 정보 불러오기
-        fetch('member/info', {
+        fetch('owner/info', {
             method: 'GET',
             credentials: 'include',
             headers: {
@@ -157,13 +156,11 @@ function UpdateInfo() {
 
         const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
         if (!passwordRegex.test(formData.password)) {
-            alert('비밀번호는 영문자와 숫자를 포함하여 8자리 이상이어야 합니다.');
+            alert('비밀번호는 영문자와 숫자를 포함하여 8자리 이상이어야 하고 특수문자는 사용할 수 없습니다.');
             return;
         }
 
         const updatedData = {
-
-            phoneNumber: formData.phoneNum,
 
             password: formData.password,
             repeatedPassword: passwordCheck,
@@ -172,7 +169,7 @@ function UpdateInfo() {
             birthday: formData.birthday || existingData.birthday
         };
 
-        fetch('member/edit-info', {
+        fetch('owner/edit-info', {
             method: 'POST',
             credentials: 'include',
             headers: {

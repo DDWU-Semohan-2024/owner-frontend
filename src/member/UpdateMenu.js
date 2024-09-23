@@ -1,9 +1,9 @@
 
 import React, {useState, useEffect} from 'react';
 import './Style.css';
-import logoImage from '../img/semohan-logo.png';
 import addMenuImage from '../img/free-icon-add-992651.png';
-import {Link} from "react-router-dom";
+// import {Link} from "react-router-dom";
+import Header from "./Header";
 
 function UpdateMenu() {
     const [year, setYear] = useState(new Date().getFullYear());
@@ -71,9 +71,7 @@ function UpdateMenu() {
 
     return (
         <div id="body">
-            <header>
-                <Link to="/main"><img src={logoImage} alt="logo"/></Link>
-            </header>
+            <Header />
 
             <form id="updateMenu" method="post" action="" onSubmit={handleSubmit}>
                 <label>날짜</label>

@@ -18,6 +18,9 @@ import ResetPassword from "./member/ResetPassword";
 import GeneratePassword from "./member/GeneratePassword";
 import ComingSoon from "./member/ComingSoon";
 import RegisterMenu from "./member/RegisterMenu";
+import StaticChart from "./member/MenuChartStatic";
+import StaticGraph from "./member/MenuGraphStatic";
+import StaticCircle from "./member/MenuCircleStatic";
 
 class App extends Component {
   render() {
@@ -44,6 +47,10 @@ class App extends Component {
             <Route exact path="/generatePassword" element={<GeneratePassword />} />
             <Route exact path="/comingSoon" element={<ComingSoon />} />
             {/*<Route path="/" element={<Login />} /> /!* 기본적으로 /login으로 이동 *!/*/}
+
+            <Route exact path="/staticChart" element={<StaticChart />} />
+            <Route exact path="/staticGraph" element={<StaticGraph />} />
+            <Route exact path="/staticCircle" element={<StaticCircle />} />
           </Routes>
         </Router>
     );
