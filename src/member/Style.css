@@ -368,4 +368,73 @@
         height: 30px;
     }
 
+    #captionStatic {
+        border-collapse: collapse; /*이중선 제거*/
+        font-size: var(--mainfontsize);
+        display: flex;
+        flex-direction: column;
+        width: var(--mainwidth);
+        align-items: center;
+    }
+
+    #captionStatic > div {
+        margin-bottom: 10px;
+        width: fit-content;
+    }
+
+    #captionStatic > section {
+        font-size: var(--mainfontsize);
+        margin-bottom: 30px;
+        display: flex;
+        padding-left: 10%;
+    }
+
+    #captionStatic > section > div {
+        margin: 0 15px;
+        text-decoration: underline;
+    }
+
+    #captionStatic > section > select {
+        width: 80px;
+        height: 25px;
+        margin-left: 15px;
+    }
+
+    #staticChart tr {
+        border-top: 1px solid black;
+        height: 50px;
+        text-align: center;
+    }
+
+    #staticChart th,
+    #staticChart td {
+        font-size: 14px;
+        width: 15%;
+        padding: 0;
+    }
+
+    #staticChart th:last-child {
+        border-right: none;
+    }
+
+    #staticChart tr > th:first-child,
+    #staticChart tr > th:nth-child(2),
+    #staticChart tr > th:nth-child(3),
+    #staticChart tr > th:nth-child(4),
+    #staticChart tr > td:first-child,
+    #staticChart tr > td:nth-child(2),
+    #staticChart tr > td:nth-child(3),
+    #staticChart tr > td:nth-child(4) {
+        border-right: 1px solid black;
+        width: 70px;
+    }
+
+    #staticChart tr:last-child {
+        border-bottom: 1px solid black;
+    }
+
+    .line-chart-container {
+        width: 300px;
+
+    }
 }

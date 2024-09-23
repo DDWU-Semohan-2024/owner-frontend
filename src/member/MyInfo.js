@@ -6,7 +6,7 @@ import axios from 'axios';
 import {Link, useNavigate} from 'react-router-dom';
 
 import Header from './Header';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 
 
 function MyInfoPage() {
@@ -40,10 +40,6 @@ function MyInfoPage() {
 
     return (
         <div id="body">
-
-            <header>
-                <Link to="/main"><img src={logoImage} alt="logo"/></Link>
-            </header>
 
             <Header />
 

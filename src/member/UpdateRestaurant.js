@@ -5,7 +5,7 @@ import logoImage from '../img/semohan-logo.png';
 import {Link, useLocation} from 'react-router-dom';
 
 import Header from './Header';
-import { useLocation, useNavigate  } from 'react-router-dom';
+import {useNavigate  } from 'react-router-dom';
 import axios from "axios";
 
 function UpdateRestaurant() {
@@ -129,9 +129,9 @@ function UpdateRestaurant() {
             }
 
             const updateResponse = await axios.post("/restaurant/updateInfo", data, {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                },
+                // headers: {
+                //     'Content-Type': 'multipart/form-data',
+                // },
                 withCredentials: true
             });
 
@@ -148,10 +148,6 @@ function UpdateRestaurant() {
 
     return (
         <div id="body">
-
-            <header>
-                <Link to="/main"><img src={logoImage} alt="logo"/></Link>
-            </header>
 
             <Header />
             <form id="updateRestaurant" onSubmit={handleSubmit}>

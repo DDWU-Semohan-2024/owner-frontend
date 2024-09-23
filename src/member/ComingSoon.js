@@ -8,10 +8,6 @@ function ComingSoon() {
     return (
         <div id="body">
 
-            <header>
-                <Link to="/main"><img src={logoImage} alt="logo"/></Link>
-            </header>
-
             <Header />
 
             <div id="result">

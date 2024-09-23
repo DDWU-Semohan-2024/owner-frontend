@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import logoImage from '../img/semohan-logo.png';
 import lock from "../img/lock.png"
 import beforeCheck from "../img/free-icon-checkmark-656971.png"
+import Header from "./Header";
 function ResetPassword() {
     const [username, setUsername] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
@@ -76,9 +77,7 @@ function ResetPassword() {
 
     return (
         <div id="body">
-            <header>
-                <img src={logoImage} alt="logo" />
-            </header>
+            <Header />
 
             <form id="newPassword" onSubmit={handleSubmit}>
 

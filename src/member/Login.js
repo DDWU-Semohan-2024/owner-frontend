@@ -3,6 +3,7 @@ import "./Style.css"; // CSS 파일을 import
 import { Link, useNavigate } from 'react-router-dom';
 import logoImage from '../img/semohan-logo.png';
 import axios from "axios";
+import Header from "./Header";
 
 function Login() {
 
@@ -54,9 +55,7 @@ function Login() {
 
     return (
         <div id="body">
-            <header>
-                <img src={logoImage} alt="logo"/>
-            </header>
+            <Header />
 
             <form id="login" onSubmit={handleSubmit}>
                 <label htmlFor="username">아이디</label>

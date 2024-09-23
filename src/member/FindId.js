@@ -4,6 +4,7 @@ import './Style.css';
 import logoImage from '../img/semohan-logo.png';
 import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
+import Header from "./Header";
 
 function FindId() {
     const [phoneNumber, setPhoneNumber] = useState('');
@@ -44,9 +45,7 @@ function FindId() {
 
     return (
         <div id="body">
-            <header>
-                <img src={logoImage} alt="logo"/>
-            </header>
+            <Header />
             <form id="findId" action="" method="post">
                 <label htmlFor="phoneNumber">휴대전화</label>
                 <div className="certification">
