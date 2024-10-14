@@ -100,7 +100,7 @@
             /*height: var(--btnheight);*/
             font-weight: bold;
             font-size: var(--mainfontsize);
-            background-color: var(--lemoncolor);
+            background-color: dimgray;
             border-radius: var(--radius);
             margin-top: 30px;
             text-decoration: none;

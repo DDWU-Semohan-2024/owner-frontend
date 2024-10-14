@@ -25,7 +25,7 @@ function Header() {
             <Link to="/main">
                 <img className="headerImg" src={logoImage} alt="logo" style={{cursor: 'pointer' }}/>
             </Link>
-            <Link to="/myInfo" onClick={handleLogout}>
+            <Link to="/myInfo">
                 <img className="headerImg1" src={profile} alt="myInfo" style={{ cursor: 'pointer' }}/>
             </Link>
         </header>
