@@ -37,7 +37,8 @@ function Login() {
                 withCredentials: true
             });
 
-            console.log(response);
+            const token = response.data.token; // TokenDto의 token 값 추출
+            console.log('JWT Token:', token);
 
             if (response.status === 200) {
                 // 로그인 성공 시 /main으로 리디렉션

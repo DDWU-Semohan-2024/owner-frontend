@@ -24,7 +24,10 @@ function MyInfoPage() {
         const fetchOwnerInfo = async () => {
             try {
                 const response = await axios.get('/owner/info', {
-                    withCredentials: true
+                    withCredentials: true,
+                    headers: {
+                        'X-AUTH-TOKEN': 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyZXN0YXVyYW50MDEiLCJyb2xlcyI6W251bGxdLCJpYXQiOjE3Mjg4OTI3NTIsImV4cCI6MTcyODg5NjM1Mn0.hc3a1iWp6LxQgVHzcwSR1qwIGtGFGM7x0z4ipYM23L0' // 헤더에 토큰 추가
+                    }
                 });
                 setOwnerInfo(response.data);
             } catch (error) {
