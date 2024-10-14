@@ -10,56 +10,74 @@ import 'chart.js/auto';
 function MenuCircleStatic() {
     const [menuData, setMenuData] = useState([]);
     const [weekIndex, setWeekIndex] = useState(0);
+    const [isDataEmpty, setIsDataEmpty] = useState(false); // 데이터가 없을 때 상태 관리
 
     const handlePreviousWeekClick = () => {
         setWeekIndex(prevWeekIndex => prevWeekIndex - 1);
         console.log('저번주 버튼 클릭');
-        fetchMenuData(); // 데이터 다시 조회
     };
 
     const handleNextWeekClick = () => {
         setWeekIndex(prevWeekIndex => prevWeekIndex + 1);
         console.log('다음주 버튼 클릭');
-        fetchMenuData(); // 데이터 다시 조회
     };
 
     const fetchMenuData = () => {
-        axios.get('/menu/' + weekIndex, {
+        axios.get(`review/pie-chart/${weekIndex}`, {
             withCredentials: true
         })
             .then(response => {
-                setMenuData(response.data);
+                const data = response.data;
+                console.log('Fetched Menu Data:', data); // 데이터 확인
+
+                // 선호도가 0이 아닌 항목만 필터링
+                const filteredData = data.filter(item => item.percentage > 0);
+
+                // 데이터가 없을 경우 처리
+                if (filteredData.length === 0) {
+                    setIsDataEmpty(true);
+                } else {
+                    setIsDataEmpty(false);
+                    setMenuData(filteredData); // 필터링된 데이터로 상태 업데이트
+                }
             })
             .catch(error => {
                 console.error('Error fetching menu data:', error);
+                setIsDataEmpty(true);
             });
     };
 
     useEffect(() => {
         fetchMenuData();
-    }, []);
+    }, [weekIndex]);  // weekIndex가 변경될 때마다 데이터 fetching
 
     const data = {
-        labels: ['1위', '2위', '3위'],
+        labels: isDataEmpty ? [] : menuData.map(item => item.menuName),  // 메뉴 이름 배열
         //label = 음식 이름
         datasets: [
             {
                 label: '# of Votes',
-                data: [19, 12, 7],
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                ],
+                data: isDataEmpty ? [1] : menuData.map(item => item.percentage),  // 퍼센티지 배열
+                backgroundColor: isDataEmpty
+                    ? ['rgba(169, 169, 169, 0.5)'] // 회색
+                    : [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                    ],
+                borderColor: isDataEmpty
+                    ? ['rgba(169, 169, 169, 1)'] // 회색
+                    : [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                    ],
                 borderWidth: 1,
             },
         ],
     };
+
+    console.log(menuData);
 
     const options = {
         responsive: true,

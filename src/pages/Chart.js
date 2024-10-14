@@ -13,14 +13,13 @@ ChartJS.register(
     Legend
 );
 
-const LineChart = () => {
+const LineChart = ({ menuData }) => {
     const data = {
         labels: ['월', '화', '수', '목', '금', '토', '일'],
         datasets: [
             {
                 label: '요일별 선호도',
-                data: [65, 59, 80, 81, 56, 100, 40],
-                //data = 좋아요 개수 / 리뷰 총 개수
+                data: menuData.map(item => item.preference),
                 fill: false,
                 backgroundColor: 'rgba(75,192,192,0.4)',
                 borderColor: 'rgba(75,192,192,1)',
@@ -29,9 +28,11 @@ const LineChart = () => {
     };
 
     const options = {
+        clip: false,
         scales: {
             y: {
-                beginAtZero: true
+                beginAtZero: true, // y축을 0에서 시작
+                max: 100, // y축 최대값을 100으로 고정
             }
         }
     };
