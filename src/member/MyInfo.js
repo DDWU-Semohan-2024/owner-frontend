@@ -6,6 +6,7 @@ import axios from 'axios';
 import {Link, useNavigate} from 'react-router-dom';
 
 import Header from './Header';
+import HeaderBFLogin from "./HeaderBFLogin";
 // import { useNavigate } from 'react-router-dom';
 
 
@@ -40,27 +41,29 @@ function MyInfoPage() {
 
     return (
         <div id="body">
+            <div className="no-mobile">모바일 버전으로 변경해주세요.</div>
+            <div className="mobile">
+                <Header />
 
-            <Header />
-
-            <table>
-                <caption>나의 정보</caption>
-                <tbody>
-                <tr>
-                    <th>이름</th>
-                    <td>{ownerInfo.name}</td>
-                </tr>
-                <tr>
-                    <th>아이디</th>
-                    <td>{ownerInfo.userName}</td>
-                </tr>
-                <tr>
-                    <th>전화번호</th>
-                    <td>{ownerInfo.phoneNumber}</td>
-                </tr>
-                </tbody>
-            </table>
-            <input className="submit" type="button" value="정보 수정" onClick={handleUpdateInfo}/>
+                <table>
+                    <caption>나의 정보</caption>
+                    <tbody>
+                    <tr>
+                        <th>이름</th>
+                        <td>{ownerInfo.name}</td>
+                    </tr>
+                    <tr>
+                        <th>아이디</th>
+                        <td>{ownerInfo.userName}</td>
+                    </tr>
+                    <tr>
+                        <th>전화번호</th>
+                        <td>{ownerInfo.phoneNumber}</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <input className="submit" type="button" value="정보 수정" onClick={handleUpdateInfo}/>
+            </div>
         </div>
     );
 }

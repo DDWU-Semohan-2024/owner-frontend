@@ -1,440 +1,519 @@
-@media (max-width: 500px) {
-    :root {
-        --lemoncolor : #FFFACDFF;
-        --graycolor : #D3D3D3FF;
-        --mainfontsize : 18px;
-        --mainwidth : 98%;
-        --shortwidth : 70%;
-        --radius : 15px;
-        --btnheight : 50px;
-    }
-    #root {
-        display: flex;
-        justify-content: center;
-    }
-
-    #body {
-        width: 80%;
-        display: flex;
-        flex-direction: column;
-    }
-
-    label {
-        font-size: var(--mainfontsize);
-    }
-
-    header {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 20px;
-    }
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+:root {
+    --lemoncolor : #FFFACDFF;
+    --graycolor : #D3D3D3FF;
+    --backcolor :  #EFEFEF;
+    --mainfontsize : 18px;
+    --mainwidth : 98%;
+    --shortwidth : 70%;
+    --radius : 15px;
+    --btnheight : 50px;
+}
 
 
-    header > a > img {
-        width: 150px;
-        height: fit-content;
-        align-items: center;
+#root {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    background-color: var(--backcolor);
+    font-family: "Jua", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+#body {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
+/*모바일 사이즈가 아닐 때*/
+@media (min-width : 600px) {
+    .mobile {
+        display: none;
     }
 
-    header > img {
-        width: 150px;
-        height: fit-content;
-        align-items: center;
-    }
-
-    .headerImg {
-        width: 40px;
-        height: fit-content;
-    }
-
-    .blank {
-        background-color: var(--graycolor);
-        border: none;
-        width: var(--mainwidth);
-        height: 30px;
-    }
-
-    .submit {
-        border: none;
-        /*height: var(--btnheight);*/
-        font-weight: bold;
-        font-size: var(--mainfontsize);
-        background-color: var(--lemoncolor);
-        border-radius: var(--radius);
-        margin-top: 30px;
-        text-decoration: none;
-        color: black;
-        text-align: center;
-        padding: 15px 30px;
-    }
-
-    form {
-        margin-top: 30px;
-    }
-
-    #login, #findId, #resultId,
-    #newPassword, #updateInfo,
-    #updateRestaurant,
-    #updateMenu {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    div, label, input {
-        margin-bottom: 8px;
-    }
-
-    .loginLink {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 20px;
-    }
-
-    .loginLink > a {
-        color: black;
-        font-size: 13px;
-    }
-
-    .mainLink {
-        display: flex;
-        flex-direction: column;
-        margin-top: 50px;
-    }
-
-    .mainLink > a {
-        width: var(--mainwidth);
-        color: black;
-        text-decoration: none;
-        font-size: var(--mainfontsize);
-        font-weight: bold;
-        border-radius: var(--radius);
-        height: 60px;
-        margin-bottom: 30px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .gray {
-        background-color: var(--graycolor);
-    }
-
-    .lemon {
-        background-color: var(--lemoncolor);
-    }
-
-    .certification {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 0;
-    }
-
-    #phoneNum {
-        width: var(--shortwidth);
-    }
-
-    .certi {
-        background-color: var(--lemoncolor);
-        border: none;
-        border-radius: var(--radius);
-    }
-
-    #certiPhone {
-        width: 80%;
-    }
-
-    .find {
-        background-color: var(--lemoncolor);
-        width: var(--mainwidth);
-        height: var(--btnheight);
-        border-radius: var(--radius);
+    .no-mobile {
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-top: 30px;
-    }
-
-    .find > a {
-        color: black;
-        text-decoration: none;
-        font-size: var(--mainfontsize);
+        height: 500px;
+        font-size: 30px;
         font-weight: bold;
     }
+}
 
-    #result {
-        margin-top: 30px;
-        font-size: 15px;
-        text-align: center;
-        font-weight: bold;
+/*모바일 사이즈일 때*/
+@media (max-width : 500px) {
+    .no-mobile {
+        display: none;
     }
 
-    #resultId {
-        margin-top: 30px;
-        background-color: var(--graycolor);
-        height: 150px;
-        text-align: left;
-        padding-left: 60px;
+    .mobile {
+
+
+        label {
+            font-size: var(--mainfontsize);
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+
+
+        header > a > img {
+            width: 150px;
+            height: fit-content;
+            align-items: center;
+        }
+
+        header > img {
+            /*width: 150px;*/
+            height: fit-content;
+            align-items: center;
+        }
+
+        .headerImg {
+            /*width: 40px;*/
+            height: fit-content;
+        }
+
+        .headerImg1 {
+            width: 40px;
+        }
+
+        .blank {
+            background-color: var(--graycolor);
+            border: none;
+            width: var(--mainwidth);
+            height: 30px;
+            border-radius: var(--radius);
+        }
+
+        .submit {
+            border: none;
+            width: var(--mainwidth);
+            /*height: var(--btnheight);*/
+            font-weight: bold;
+            font-size: var(--mainfontsize);
+            background-color: var(--lemoncolor);
+            border-radius: var(--radius);
+            margin-top: 30px;
+            text-decoration: none;
+            color: black;
+            text-align: center;
+            padding: 15px 30px;
+        }
+
+        form {
+            margin-top: 30px;
+        }
+
+        #login, #findId, #resultId,
+        #newPassword, #updateInfo,
+        #updateRestaurant,
+        #updateMenu {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        div, label, input {
+            margin-bottom: 8px;
+        }
+
+        .loginLink {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .loginLink > a {
+            color: black;
+            font-size: 13px;
+        }
+
+        /*MAIN*/
+
+        /*.mainLink {*/
+        /*    display: flex;*/
+        /*    flex-direction: column;*/
+        /*    margin-top: 50px;*/
+        /*}*/
+
+        /*.mainLink > a {*/
+        /*    width: var(--mainwidth);*/
+        /*    color: black;*/
+        /*    text-decoration: none;*/
+        /*    font-size: var(--mainfontsize);*/
+        /*    font-weight: bold;*/
+        /*    border-radius: var(--radius);*/
+        /*    height: 60px;*/
+        /*    margin-bottom: 30px;*/
+        /*    display: flex;*/
+        /*    justify-content: center;*/
+        /*    align-items: center;*/
+        /*}*/
+
+        .mainLink {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .mainLink > a {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            line-height: 60px;
+            color: black;
+            margin-top: 50px;
+        }
+
+        .mainLink img {
+            width: 60%;
+            box-sizing: border-box;
+        }
+
+        .gray {
+            background-color: var(--graycolor);
+        }
+
+        .lemon {
+            background-color: var(--lemoncolor);
+        }
+
+        .certification {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0;
+        }
+
+        .certi {
+            background-color: var(--lemoncolor);
+            border: none;
+            border-radius: var(--radius);
+            width: 98px;
+        }
+
+        #certiPhone {
+            width: 75%;
+        }
+
+        #certiPhone1 {
+            width: 65%;
+        }
+
+        .find {
+            background-color: var(--lemoncolor);
+            width: var(--mainwidth);
+            height: var(--btnheight);
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .find > a {
+            color: black;
+            text-decoration: none;
+            font-size: var(--mainfontsize);
+            font-weight: bold;
+        }
+
+        #result {
+            margin-top: 30px;
+            font-size: 15px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        #resultId {
+            margin-top: 30px;
+            background-color: var(--graycolor);
+            height: 150px;
+            text-align: left;
+            padding-left: 60px;
+        }
+
+        .btn {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .btn > a {
+            padding : 10px;
+            border-radius: var(--radius);
+            color: black;
+            text-decoration: none;
+            font-size: var(--mainfontsize);
+            background-color: var(--lemoncolor);
+            text-align: center;
+        }
+
+        .btn > a:first-child {
+            width:70px;
+        }
+
+        table {
+            border-collapse: collapse; /*이중선 제거*/
+            font-size: var(--mainfontsize);
+            width: var(--mainwidth);
+        }
+
+        caption,
+        #caption {
+            text-decoration: underline;
+            font-size: var(--mainfontsize);
+            margin-bottom: 30px;
+            margin-top: 30px;
+            caption-side: top;
+            text-align: center;
+        }
+
+        tr {
+            width: var(--mainwidth);
+            height: 40px;
+        }
+
+        td {
+            border-top: 1px solid black;
+            width: 180px;
+            padding-left: 10px;
+        }
+
+        th {
+            border-top: 1px solid black;
+            border-right: 1px solid black;
+        }
+
+        tr:last-child > th,
+        tr:last-child > td {
+            border-bottom: 1px solid black;
+        }
+
+        #containImg {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        /*자물쇠, 체크버튼 이미지*/
+        #newPassword > div > img,
+        #updateInfo > div > img{
+            width:fit-content;
+            height:23px;
+            position: absolute;
+            z-index : 1;
+            margin-top: 4px;
+            margin-right: 4px;
+        }
+
+        #phoneNumOriginal {
+            width: var(--mainwidth);
+        }
+
+        select {
+            border: 1px solid black;
+            display: flex;
+            justify-content: space-between;
+            height: 40px;
+            width: 100%;
+        }
+
+        select > option {
+            font-size: 10px;
+        }
+
+        #dateSelect {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #dateSelect > select {
+            width: 85px;
+        }
+
+        #updateMenu > select:first-child {
+            margin-bottom: 20px;
+        }
+
+        #addInputBtn {
+            /*background-color: red;*/ /* + 버튼 색깔이 바뀌어요...............*/
+            background-color: transparent; /* 배경색을 완전히 투명하게 설정 */
+            border: none;
+            font-size: 18px;
+            border-radius: 15px;
+            height: 30px;
+            cursor: pointer;
+            width: 30px;
+            margin-left: 45%;
+        }
+
+        .addMenu {
+            display: flex;
+            flex-direction: column;
+            margin-top: 30px;
+        }
+
+        #viewMenu {
+            border-collapse: collapse; /*이중선 제거*/
+            font-size: var(--mainfontsize);
+            display: flex;
+            flex-direction: column;
+            width: var(--mainwidth);
+        }
+
+        #viewMenu > caption {
+            text-decoration: underline;
+            font-size: var(--mainfontsize);
+            margin-bottom: 30px;
+            margin-top: 30px;
+            display: flex;
+            padding-left: 30%;
+        }
+
+        #viewMenu > caption > div {
+            margin: 0 15px;
+        }
+
+        #viewMenu tr {
+            border-top: 1px solid black;
+            height: 50px;
+            text-align: center;
+        }
+
+        #viewMenu th,
+        #viewMenu td {
+            font-size: 15px;
+            width: 15%;
+            padding: 0;
+        }
+
+        #viewMenu th:last-child {
+            border-right: none;
+        }
+
+        #viewMenu tr > th:first-child,
+        #viewMenu tr > th:nth-child(2),
+        #viewMenu tr > th:nth-child(3),
+        #viewMenu tr > th:nth-child(4),
+        #viewMenu tr > td:first-child,
+        #viewMenu tr > td:nth-child(2),
+        #viewMenu tr > td:nth-child(3),
+        #viewMenu tr > td:nth-child(4) {
+            border-right: 1px solid black;
+            width: 70px;
+        }
+
+        #viewMenu tr:last-child {
+            border-bottom: 1px solid black;
+        }
+
+
+        .last {
+            width: 25px;
+            height: 25px;
+            rotate: 270deg;
+        }
+
+        .next {
+            width: 25px;
+            height: 25px;
+            rotate: 90deg;
+        }
+
+        .edit {
+            width: 30px;
+            height: 30px;
+        }
+
+        #captionStatic {
+            border-collapse: collapse; /*이중선 제거*/
+            font-size: var(--mainfontsize);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            /*width: var(--mainwidth);*/
+            align-items: center;
+        }
+
+        #captionStatic > div {
+            margin-bottom: 10px;
+            width: fit-content;
+        }
+
+        #captionStatic > section {
+            font-size: var(--mainfontsize);
+            margin-bottom: 30px;
+            display: flex;
+        }
+
+        #captionStatic > section > div {
+            margin: 0 15px;
+            text-decoration: underline;
+        }
+
+        /*#captionStatic > section > select {*/
+        /*    width: 80px;*/
+        /*    height: 25px;*/
+        /*    margin-left: 15px;*/
+        /*}*/
+
+        #selectStatic {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        #selectStatic > button {
+            width: 60px;
+        }
+
+        #staticChart tr {
+            border-top: 1px solid black;
+            height: 50px;
+            text-align: center;
+        }
+
+        #staticChart th,
+        #staticChart td {
+            font-size: 14px;
+            width: 15%;
+            padding: 0;
+        }
+
+        #staticChart th:last-child {
+            border-right: none;
+        }
+
+        #staticChart tr > th:first-child,
+        #staticChart tr > th:nth-child(2),
+        #staticChart tr > th:nth-child(3),
+        #staticChart tr > th:nth-child(4),
+        #staticChart tr > td:first-child,
+        #staticChart tr > td:nth-child(2),
+        #staticChart tr > td:nth-child(3),
+        #staticChart tr > td:nth-child(4) {
+            border-right: 1px solid black;
+            width: 70px;
+        }
+
+        #staticChart tr:last-child {
+            border-bottom: 1px solid black;
+        }
+
+        .line-chart-container {
+            width: 300px;
+
+        }
     }
 
-    .btn {
-        margin-top: 20px;
-        display: flex;
-        justify-content: space-around;
-    }
 
-    .btn > a {
-        padding : 10px;
-        border-radius: var(--radius);
-        color: black;
-        text-decoration: none;
-        font-size: var(--mainfontsize);
-        background-color: var(--lemoncolor);
-        text-align: center;
-    }
-
-    .btn > a:first-child {
-        width:70px;
-    }
-
-    table {
-        border-collapse: collapse; /*이중선 제거*/
-        font-size: var(--mainfontsize);
-    }
-
-    caption,
-    #caption {
-        text-decoration: underline;
-        font-size: var(--mainfontsize);
-        margin-bottom: 30px;
-        margin-top: 30px;
-        caption-side: top;
-        text-align: center;
-    }
-
-    tr {
-        width: var(--mainwidth);
-        height: 40px;
-    }
-
-    td {
-        border-top: 1px solid black;
-        width: 180px;
-        padding-left: 10px;
-    }
-
-    th {
-        border-top: 1px solid black;
-        border-right: 1px solid black;
-    }
-
-    tr:last-child > th,
-    tr:last-child > td {
-        border-bottom: 1px solid black;
-    }
-
-    #containImg {
-        display: flex;
-        justify-content: flex-end;
-    }
-
-    /*자물쇠, 체크버튼 이미지*/
-    #newPassword > div > img,
-    #updateInfo > div > img{
-        width:fit-content;
-        height:23px;
-        position: absolute;
-        z-index : 1;
-        margin-top: 4px;
-        margin-right: 4px;
-    }
-
-    #phoneNumOriginal {
-        width: var(--mainwidth);
-    }
-
-    select {
-        border: 1px solid black;
-        display: flex;
-        justify-content: space-between;
-        height: 40px;
-        width: 100%;
-    }
-
-    select > option {
-        font-size: 10px;
-    }
-
-    #dateSelect {
-        display: flex;
-        justify-content: space-between;
-    }
-
-    #dateSelect > select {
-        width: 85px;
-    }
-
-    #updateMenu > select:first-child {
-        margin-bottom: 20px;
-    }
-
-    #addInputBtn {
-        /*background-color: red;*/ /* + 버튼 색깔이 바뀌어요...............*/
-        background-color: transparent; /* 배경색을 완전히 투명하게 설정 */
-        border: none;
-        font-size: 18px;
-        border-radius: 15px;
-        height: 30px;
-        cursor: pointer;
-        width: 30px;
-        margin-left: 45%;
-    }
-
-    .addMenu {
-        display: flex;
-        flex-direction: column;
-        margin-top: 30px;
-    }
-
-    #viewMenu {
-        border-collapse: collapse; /*이중선 제거*/
-        font-size: var(--mainfontsize);
-        display: flex;
-        flex-direction: column;
-        width: var(--mainwidth);
-    }
-
-    #viewMenu > caption {
-        text-decoration: underline;
-        font-size: var(--mainfontsize);
-        margin-bottom: 30px;
-        margin-top: 30px;
-        display: flex;
-        padding-left: 30%;
-    }
-
-    #viewMenu > caption > div {
-        margin: 0 15px;
-    }
-
-    #viewMenu tr {
-        border-top: 1px solid black;
-        height: 50px;
-        text-align: center;
-    }
-
-    #viewMenu th,
-    #viewMenu td {
-        font-size: 15px;
-        width: 15%;
-        padding: 0;
-    }
-
-    #viewMenu th:last-child {
-        border-right: none;
-    }
-
-    #viewMenu tr > th:first-child,
-    #viewMenu tr > th:nth-child(2),
-    #viewMenu tr > th:nth-child(3),
-    #viewMenu tr > th:nth-child(4),
-    #viewMenu tr > td:first-child,
-    #viewMenu tr > td:nth-child(2),
-    #viewMenu tr > td:nth-child(3),
-    #viewMenu tr > td:nth-child(4) {
-        border-right: 1px solid black;
-        width: 70px;
-    }
-
-    #viewMenu tr:last-child {
-        border-bottom: 1px solid black;
-    }
-
-
-    .last {
-        width: 25px;
-        height: 25px;
-        rotate: 270deg;
-    }
-
-    .next {
-        width: 25px;
-        height: 25px;
-        rotate: 90deg;
-    }
-
-    .edit {
-        width: 30px;
-        height: 30px;
-    }
-
-    #captionStatic {
-        border-collapse: collapse; /*이중선 제거*/
-        font-size: var(--mainfontsize);
-        display: flex;
-        flex-direction: column;
-        width: var(--mainwidth);
-        align-items: center;
-    }
-
-    #captionStatic > div {
-        margin-bottom: 10px;
-        width: fit-content;
-    }
-
-    #captionStatic > section {
-        font-size: var(--mainfontsize);
-        margin-bottom: 30px;
-        display: flex;
-        padding-left: 10%;
-    }
-
-    #captionStatic > section > div {
-        margin: 0 15px;
-        text-decoration: underline;
-    }
-
-    #captionStatic > section > select {
-        width: 80px;
-        height: 25px;
-        margin-left: 15px;
-    }
-
-    #staticChart tr {
-        border-top: 1px solid black;
-        height: 50px;
-        text-align: center;
-    }
-
-    #staticChart th,
-    #staticChart td {
-        font-size: 14px;
-        width: 15%;
-        padding: 0;
-    }
-
-    #staticChart th:last-child {
-        border-right: none;
-    }
-
-    #staticChart tr > th:first-child,
-    #staticChart tr > th:nth-child(2),
-    #staticChart tr > th:nth-child(3),
-    #staticChart tr > th:nth-child(4),
-    #staticChart tr > td:first-child,
-    #staticChart tr > td:nth-child(2),
-    #staticChart tr > td:nth-child(3),
-    #staticChart tr > td:nth-child(4) {
-        border-right: 1px solid black;
-        width: 70px;
-    }
-
-    #staticChart tr:last-child {
-        border-bottom: 1px solid black;
-    }
-
-    .line-chart-container {
-        width: 300px;
-
-    }
 }

@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 import './Style.css';
 import logoImage from '../img/semohan-logo.png';
 
-function Header() {
+function HeaderBFLogin() {
     return (
         <header>
-            <Link to="/main">
-                <img src={logoImage} alt="logo" style={{ cursor: 'pointer' }}/>
+            <Link to="/login">
+                <img src={logoImage} alt="logo" style={{ cursor: 'pointer' }} />
             </Link>
         </header>
     );
 }
 
-export default Header;
+export default HeaderBFLogin;
