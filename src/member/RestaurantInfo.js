@@ -34,38 +34,41 @@ function RestaurantInfo() {
 
     return (
         <div id="body">
-            <Header />
-            <table>
-                <caption>식당 정보</caption>
-                <tbody>
-                <tr>
-                    <th>상호명</th>
-                    <td>{restaurant.name}</td>
-                </tr>
-                <tr>
-                    <th>전화번호</th>
-                    <td>{restaurant.phoneNumber}</td>
-                </tr>
-                <tr>
-                    <th>주소</th>
-                    <td>{restaurant.address}</td>
-                </tr>
-                <tr>
-                    <th>영업 시간</th>
-                    <td>{restaurant.businessHours}</td>
-                </tr>
-                <tr>
-                    <th>가격</th>
-                    <td>{restaurant.price}</td>
-                </tr>
-                <tr>
-                    <th>사진</th>
-                    <td><img src={restaurant.image.s3Url} alt={restaurant.name}
-                             style={{width: '150px', height: 'auto'}}/></td>
-                </tr>
-                </tbody>
-            </table>
-            <input className="submit" type="button" value="정보 수정" onClick={handleUpdateClick}/>
+            <div className="no-mobile">모바일 버전으로 변경해주세요.</div>
+            <div className="mobile">
+                <Header />
+                <table>
+                    <caption>식당 정보</caption>
+                    <tbody>
+                    <tr>
+                        <th>상호명</th>
+                        <td>{restaurant.name}</td>
+                    </tr>
+                    <tr>
+                        <th>전화번호</th>
+                        <td>{restaurant.phoneNumber}</td>
+                    </tr>
+                    <tr>
+                        <th>주소</th>
+                        <td>{restaurant.address}</td>
+                    </tr>
+                    <tr>
+                        <th>영업 시간</th>
+                        <td>{restaurant.businessHours}</td>
+                    </tr>
+                    <tr>
+                        <th>가격</th>
+                        <td>{restaurant.price}</td>
+                    </tr>
+                    <tr>
+                        <th>사진</th>
+                        <td><img src={restaurant.image.s3Url} alt={restaurant.name}
+                                 style={{width: '150px', height: 'auto'}}/></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <input className="submit" type="button" value="정보 수정" onClick={handleUpdateClick}/>
+            </div>
         </div>
     );
 

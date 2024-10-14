@@ -53,44 +53,47 @@ function ViewMenu() {
 
     return (
         <div id="body">
-            <Header />
+            <div className="no-mobile">모바일 버전으로 변경해주세요.</div>
+            <div className="mobile">
+                <Header />
 
-            {/* 데이터가 있을 경우 */}
-            <table id="viewMenu">
-                <caption>
-                    <img className="last" src={triangle} alt="저번주" onClick={handlePreviousWeekClick}/>
-                    <div>주별 조회 {/* 선택 날짜 */}</div>
-                    <img className="next" src={triangle} alt="다음주" onClick={handleNextWeekClick}/>
-                </caption>
-                <thead>
-                <tr>
-                    <th>날짜</th>
-                    <th>메인 메뉴</th>
-                    <th>반찬</th>
-                    <th>수정</th>
-                    <th>삭제</th>
-                </tr>
-                </thead>
-                <tbody>
-                {menuData.map((item, index) => (
-                    <tr key={index}>
-                        <td>{item.mealDate}</td>
-                        <td>{item.mainMenu}</td>
-                        <td>{item.subMenu}</td>
-                        <td>
-                            <Link to="/updateMenu">
-                                <img className="edit" src={edit} alt="수정"/>
-                            </Link>
-                        </td>
-                        <td>
-                            <img className="edit" src={remove} alt="삭제" onClick={() => removeTr(item.id)}/>
-                        </td>
-
+                {/* 데이터가 있을 경우 */}
+                <table id="viewMenu">
+                    <caption>
+                        <img className="last" src={triangle} alt="저번주" onClick={handlePreviousWeekClick}/>
+                        <div>주별 조회 {/* 선택 날짜 */}</div>
+                        <img className="next" src={triangle} alt="다음주" onClick={handleNextWeekClick}/>
+                    </caption>
+                    <thead>
+                    <tr>
+                        <th>날짜</th>
+                        <th>메인 메뉴</th>
+                        <th>반찬</th>
+                        <th>수정</th>
+                        <th>삭제</th>
                     </tr>
-                ))}
-                </tbody>
-            </table>
-            <Link className="submit" to="/updateMenu">메뉴 등록</Link>
+                    </thead>
+                    <tbody>
+                    {menuData.map((item, index) => (
+                        <tr key={index}>
+                            <td>{item.mealDate}</td>
+                            <td>{item.mainMenu}</td>
+                            <td>{item.subMenu}</td>
+                            <td>
+                                <Link to="/updateMenu">
+                                    <img className="edit" src={edit} alt="수정"/>
+                                </Link>
+                            </td>
+                            <td>
+                                <img className="edit" src={remove} alt="삭제" onClick={() => removeTr(item.id)}/>
+                            </td>
+
+                        </tr>
+                    ))}
+                    </tbody>
+                </table>
+                <Link className="submit" to="/updateMenu">메뉴 등록</Link>
+            </div>
         </div>
     );
 }

@@ -5,6 +5,7 @@ import logoImage from '../img/semohan-logo.png';
 import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
 import Header from "./Header";
+import HeaderBFLogin from "./HeaderBFLogin";
 
 function FindId() {
     const [phoneNumber, setPhoneNumber] = useState('');
@@ -45,26 +46,38 @@ function FindId() {
 
     return (
         <div id="body">
-            <Header />
-            <form id="findId" action="" method="post">
-                <label htmlFor="phoneNumber">휴대전화</label>
-                <div className="certification">
-                    <input className="blank" type="tel" name="phoneNumber" id="phoneNumber" autoComplete="tel"
-                           value={phoneNumber}
-                           onChange={(e) => setPhoneNumber(e.target.value)}/>
-                    <input className="certi" type="button" value="인증번호" onClick={handleSendCertification}/>
-                </div>
-                <div className="certification">
-                    <input className="blank" type="number" name="certificationNum"
-                           placeholder="인증번호를 입력하세요" id="certiPhone"
-                           value={certificationNum}
-                           onChange={(e) => setCertificationNum(e.target.value)}/>
-                    {/*<input className="certi" type="button" value="인증확인" onClick={handleCertification}/>*/}
-                </div>
-                <div className="find" onClick={handleCertification}>
-                    아이디 찾기
-                </div>
-            </form>
+            <div className="no-mobile">모바일 버전으로 변경해주세요.</div>
+            <div className="mobile">
+                <HeaderBFLogin />
+                <form id="findId" action="" method="post">
+                    <label htmlFor="phoneNumber">휴대전화</label>
+                    <div className="certification">
+                        <input
+                            className="blank"
+                            type="tel"
+                            name="phoneNumber"
+                            id="certiPhone1"
+                            autoComplete="tel"
+                            value={phoneNumber}
+                            onChange={(e) => setPhoneNumber(e.target.value)}/>
+                        <input className="certi" type="button" value="인증번호 요청" onClick={handleSendCertification}/>
+                    </div>
+                    <div className="certification">
+                        <input
+                            className="blank"
+                            type="number"
+                            name="certificationNum"
+                            placeholder="인증번호를 입력하세요"
+                            id="certiPhone1"
+                            value={certificationNum}
+                            onChange={(e) => setCertificationNum(e.target.value)}/>
+                        {/*<input className="certi" type="button" value="인증확인" onClick={handleCertification}/>*/}
+                    </div>
+                    <div className="find" onClick={handleCertification}>
+                        아이디 찾기
+                    </div>
+                </form>
+            </div>
         </div>
     );
 }

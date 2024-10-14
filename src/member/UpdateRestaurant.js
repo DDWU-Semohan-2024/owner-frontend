@@ -148,75 +148,78 @@ function UpdateRestaurant() {
 
     return (
         <div id="body">
+            <div className="no-mobile">모바일 버전으로 변경해주세요.</div>
+            <div className="mobile">
 
-            <Header />
-            <form id="updateRestaurant" onSubmit={handleSubmit}>
-                <label htmlFor="address">주소</label>
-                <input
-                    className="blank"
-                    type="text"
-                    name="address"
-                    id="address"
-                    value={formData.address}
-                    onChange={handleChange}
-                />
-                <input
-                    className="blank"
-                    type="text"
-                    name="postcode"
-                    id="postcode"
-                    placeholder="우편 번호"
-                    value={formData.postcode}
-                    onChange={handleChange}
-                />
-                <input
-                    className="blank"
-                    type="text"
-                    name="detailedAddress"
-                    id="detailedAddress"
-                    value={formData.detailedAddress}
-                    placeholder="상세 주소"
-                    onChange={handleChange}
-                />
-                <input type="button" onClick={postcodePopup} value="우편번호 찾기"/>
-
-                <label htmlFor="businessHours">영업시간</label>
-                <input
-                    className="blank"
-                    type="text"
-                    name="businessHours"
-                    id="businessHours"
-                    value={formData.businessHours}
-                    placeholder="영업시간"
-                    onChange={handleChange}
-                />
-                <label htmlFor="price">가격 안내</label>
-                <input
-                    className="blank"
-                    type="text"
-                    name="price"
-                    id="price"
-                    value={formData.price}
-                    placeholder="기존 가격"
-                    onChange={handleChange}
-                />
-                <label htmlFor="restaurantPhoto">가게 사진</label>
-                <div>
+                <Header />
+                <form id="updateRestaurant" onSubmit={handleSubmit}>
+                    <label htmlFor="address">주소</label>
                     <input
-                        type="file"
-                        name="fileUpload"
-                        id="fileUpload"
-                        className="file-input"
-                        onChange={handleFileChange}
+                        className="blank"
+                        type="text"
+                        name="address"
+                        id="address"
+                        value={formData.address}
+                        onChange={handleChange}
                     />
-                    {formData.imageUrl && (
-                        <div>
-                            <img src={formData.imageUrl} alt="Restaurant" style={{width: '200px', height: '200px'}}/>
-                        </div>
-                    )}
-                </div>
-                <input className="submit" type="submit" value="저장"/>
-            </form>
+                    <input
+                        className="blank"
+                        type="text"
+                        name="postcode"
+                        id="postcode"
+                        placeholder="우편 번호"
+                        value={formData.postcode}
+                        onChange={handleChange}
+                    />
+                    <input
+                        className="blank"
+                        type="text"
+                        name="detailedAddress"
+                        id="detailedAddress"
+                        value={formData.detailedAddress}
+                        placeholder="상세 주소"
+                        onChange={handleChange}
+                    />
+                    <input type="button" onClick={postcodePopup} value="우편번호 찾기"/>
+
+                    <label htmlFor="businessHours">영업시간</label>
+                    <input
+                        className="blank"
+                        type="text"
+                        name="businessHours"
+                        id="businessHours"
+                        value={formData.businessHours}
+                        placeholder="영업시간"
+                        onChange={handleChange}
+                    />
+                    <label htmlFor="price">가격 안내</label>
+                    <input
+                        className="blank"
+                        type="text"
+                        name="price"
+                        id="price"
+                        value={formData.price}
+                        placeholder="기존 가격"
+                        onChange={handleChange}
+                    />
+                    <label htmlFor="restaurantPhoto">가게 사진</label>
+                    <div>
+                        <input
+                            type="file"
+                            name="fileUpload"
+                            id="fileUpload"
+                            className="file-input"
+                            onChange={handleFileChange}
+                        />
+                        {formData.imageUrl && (
+                            <div>
+                                <img src={formData.imageUrl} alt="Restaurant" style={{width: '200px', height: '200px'}}/>
+                            </div>
+                        )}
+                    </div>
+                    <input className="submit" type="submit" value="저장"/>
+                </form>
+            </div>
         </div>
     );
 }
