@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Style.css';
-import logoImage from '../img/semohan-logo.png';
+import logoImage from '../img/newLogo-removebg-preview.png';
 import profile from '../img/profile-user.png';
 import logout from '../img/logout.png';
 import axios from "axios";
