@@ -4,24 +4,24 @@ import {useState, useEffect} from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import Login from "./member/Login";
-import FindId from "./member/FindId";
-import MyInfo from "./member/MyInfo";
-import ResultId from "./member/ResultId";
-import ViewMenu from "./member/ViewMenu";
-import Main from "./member/Main";
-import RestaurantInfo from "./member/RestaurantInfo";
-import UpdateRestaurant from "./member/UpdateRestaurant";
-import UpdateMenu from "./member/UpdateMenu";
-import UpdateInfo from "./member/UpdateInfo";
-import ResetPassword from "./member/ResetPassword";
-import GeneratePassword from "./member/GeneratePassword";
-import ComingSoon from "./member/ComingSoon";
-import RegisterMenu from "./member/RegisterMenu";
-import StaticChart from "./member/MenuChartStatic";
-import StaticGraph from "./member/MenuGraphStatic";
-import StaticCircle from "./member/MenuCircleStatic";
-import SmartRecommend from "./member/smartRecommend";
+import Login from "./pages/Login";
+import FindId from "./pages/FindId";
+import MyInfo from "./pages/MyInfo";
+import ResultId from "./pages/ResultId";
+import ViewMenu from "./pages/ViewMenu";
+import Main from "./pages/Main";
+import RestaurantInfo from "./pages/RestaurantInfo";
+import UpdateRestaurant from "./pages/UpdateRestaurant";
+import UpdateMenu from "./pages/UpdateMenu";
+import UpdateInfo from "./pages/UpdateInfo";
+import ResetPassword from "./pages/ResetPassword";
+import GeneratePassword from "./pages/GeneratePassword";
+import ComingSoon from "./pages/ComingSoon";
+import RegisterMenu from "./pages/RegisterMenu";
+import StaticChart from "./pages/MenuChartStatic";
+import StaticGraph from "./pages/MenuGraphStatic";
+import StaticCircle from "./pages/MenuCircleStatic";
+import SmartRecommend from "./pages/smartRecommend";
 
 class App extends Component {
   render() {
