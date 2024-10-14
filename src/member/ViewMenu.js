@@ -91,8 +91,9 @@ function ViewMenu() {
                         </tr>
                     ))}
                     </tbody>
+                    <Link className="submit" to="/updateMenu">메뉴 등록</Link>
                 </table>
-                <Link className="submit" to="/updateMenu">메뉴 등록</Link>
+
             </div>
         </div>
     );

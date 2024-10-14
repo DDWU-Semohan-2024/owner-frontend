@@ -21,6 +21,7 @@ import RegisterMenu from "./member/RegisterMenu";
 import StaticChart from "./member/MenuChartStatic";
 import StaticGraph from "./member/MenuGraphStatic";
 import StaticCircle from "./member/MenuCircleStatic";
+import SmartRecommend from "./member/smartRecommend";
 
 class App extends Component {
   render() {
@@ -51,6 +52,8 @@ class App extends Component {
             <Route exact path="/staticChart" element={<StaticChart />} />
             <Route exact path="/staticGraph" element={<StaticGraph />} />
             <Route exact path="/staticCircle" element={<StaticCircle />} />
+
+            <Route exact path="/smartRecommend" element={<SmartRecommend />} />
           </Routes>
         </Router>
     );

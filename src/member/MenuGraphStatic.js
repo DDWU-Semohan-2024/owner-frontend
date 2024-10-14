@@ -49,22 +49,27 @@ function MenuGraphStatic() {
 
                 <div id="captionStatic">
                     <div>메뉴 선호도 통계</div>
+                    <div id="selectStatic">
+                        <button><Link to="/staticChart">표</Link></button>
+                        <button><Link to="/staticGraph">그래프</Link></button>
+                        <button><Link to="/staticCircle">원형</Link></button>
+                    </div>
                     <section>
                         <img className="last" src={triangle} alt="저번주" onClick={handlePreviousWeekClick}/>
                         <div>주별 조회 {/* 선택 날짜 */}</div>
                         <img className="next" src={triangle} alt="다음주" onClick={handleNextWeekClick}/>
-                        <select>
-                            <option><Link to="/staticGraph">그래프</Link></option>
-                            <option><Link to="/staticChart">표</Link></option>
-                            <option><Link to="/staticCircle">원형</Link></option>
-                        </select>
+                        {/*<select>*/}
+                        {/*    <option><Link to="/staticGraph">그래프</Link></option>*/}
+                        {/*    <option><Link to="/staticChart">표</Link></option>*/}
+                        {/*    <option><Link to="/staticCircle">원형</Link></option>*/}
+                        {/*</select>*/}
                     </section>
                 </div>
 
-                <LineChart />
+                <LineChart/>
             </div>
         </div>
     )
 }
 
-    export default MenuGraphStatic;
+export default MenuGraphStatic;

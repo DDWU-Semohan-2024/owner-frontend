@@ -38,8 +38,11 @@ const LineChart = () => {
 
     return (
         <div className="line-chart-container">
-            <Line data={data} options={options} />
+            <div>
+                <Line data={data} options={options}/>
+            </div>
         </div>
+
     );
 };
 

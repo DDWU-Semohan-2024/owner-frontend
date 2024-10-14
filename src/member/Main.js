@@ -42,7 +42,7 @@ function Main() {
                         <img className="mainIcon" src={smart1} alt="smartRecommend"/>
                         <div>스마트 추천</div>
                     </Link>
-                    <Link to="/MenuCircleStatic">
+                    <Link to="/staticChart">
                         <img className="mainIcon" src={statics} alt="statics"/>
                         <div>지난 기록</div>
                     </Link>

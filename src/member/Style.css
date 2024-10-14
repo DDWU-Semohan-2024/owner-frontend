@@ -50,8 +50,6 @@
     }
 
     .mobile {
-
-
         label {
             font-size: var(--mainfontsize);
         }
@@ -368,6 +366,7 @@
             display: flex;
             flex-direction: column;
             width: var(--mainwidth);
+            justify-content: center;
         }
 
         #viewMenu > caption {
@@ -376,7 +375,7 @@
             margin-bottom: 30px;
             margin-top: 30px;
             display: flex;
-            padding-left: 30%;
+            padding-left: 25%;
         }
 
         #viewMenu > caption > div {
@@ -445,7 +444,7 @@
         }
 
         #captionStatic > div {
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             width: fit-content;
         }
 
@@ -466,14 +465,27 @@
         /*    margin-left: 15px;*/
         /*}*/
 
-        #selectStatic {
+        #captionStatic > #selectStatic {
+            width: 70%;
             display: flex;
             flex-direction: row;
             justify-content: space-between;
+
         }
 
         #selectStatic > button {
             width: 60px;
+            border-radius: var(--radius);
+        }
+
+        #selectStatic > button:hover {
+            background-color: lemonchiffon;
+        }
+
+        #selectStatic a {
+            text-decoration: none;
+            color: black;
+
         }
 
         #staticChart tr {
@@ -510,8 +522,38 @@
         }
 
         .line-chart-container {
-            width: 300px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
 
+        #ranking {
+            display: flex;
+            justify-content: center;
+            font-size: 20px;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        #ranking > nav {
+            width: 270px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        #ranking > nav > div {
+            margin: 0;
+        }
+
+        #ranking img {
+            width: 50px;
+        }
+
+        #ranking section {
+            padding-top: 30px;
+            display: flex;
+            align-items: center;
         }
     }
 
