@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Style.css';
-import logoImage from '../img/semohan-logo.png';
+import logoImage from '../img/newLogo-removebg-preview.png';
 
 function Header() {
     return (
