@@ -186,7 +186,7 @@
         }
 
         .lemon {
-            background-color: var(--lemoncolor);
+            background-color: dimgray;
         }
 
         .certification {
@@ -196,7 +196,7 @@
         }
 
         .certi {
-            background-color: var(--lemoncolor);
+            background-color: dimgray;
             border: none;
             border-radius: var(--radius);
             width: 98px;
@@ -211,7 +211,7 @@
         }
 
         .find {
-            background-color: var(--lemoncolor);
+            background-color: dimgray;
             width: var(--mainwidth);
             height: var(--btnheight);
             border-radius: var(--radius);
@@ -255,7 +255,7 @@
             color: black;
             text-decoration: none;
             font-size: var(--mainfontsize);
-            background-color: var(--lemoncolor);
+            background-color: dimgray;
             text-align: center;
         }
 
