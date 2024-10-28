@@ -57,7 +57,10 @@ function RegisterMenu() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const mealDate = new Date(year, month - 1, date).toISOString().split('T')[0]; // 포맷을 맞춘 식사 날짜
+        const mealDate = new Date(year, month - 1, date)
+        .toLocaleDateString('ko-KR', { year: 'numeric', month: '2-digit', day: '2-digit' })
+        .replace(/\. /g, '-')
+        .replace(/\.$/, '');
         const menuData = {
             mealDate,
             mealType,
