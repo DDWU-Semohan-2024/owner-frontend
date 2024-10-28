@@ -46,7 +46,7 @@ function Main() {
                         <img className="mainIcon" src={statics} alt="statics"/>
                         <div>지난 기록</div>
                     </Link>
-                    <Link to="/registerMenu">
+                    <Link to="/viewMenu">
                         <img className="mainIcon" src={menu1} alt="registerMenu"/>
                         <div>메뉴 등록</div>
                     </Link>

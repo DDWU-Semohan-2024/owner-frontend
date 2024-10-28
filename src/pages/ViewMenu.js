@@ -12,7 +12,7 @@ function ViewMenu() {
     const [weekIndex, setWeekIndex] = useState(0);
 
     const fetchMenuData = () => {
-        axios.get('/menu/' + weekIndex, {
+        axios.get('/menu/week/' + weekIndex, {
             withCredentials: true
         })
             .then(response => {
@@ -91,7 +91,7 @@ function ViewMenu() {
                         </tr>
                     ))}
                     </tbody>
-                    <Link className="submit" to="/updateMenu">메뉴 등록</Link>
+                    <Link className="submit" to="/registerMenu">메뉴 등록</Link>
                 </table>
 
             </div>
