@@ -3,10 +3,8 @@ import './Style.css';
 import Header from './Header';
 import axios from "axios";
 import triangle from "../img/free-icon-triangle-649731.png";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import LineChart from './Chart';
-
-
 
 function MenuGraphStatic() {
     const [menuData, setMenuData] = useState([]);
@@ -15,21 +13,32 @@ function MenuGraphStatic() {
     const handlePreviousWeekClick = () => {
         setWeekIndex(prevWeekIndex => prevWeekIndex - 1);
         console.log('저번주 버튼 클릭');
-        fetchMenuData(); // 데이터 다시 조회
     };
 
     const handleNextWeekClick = () => {
         setWeekIndex(prevWeekIndex => prevWeekIndex + 1);
         console.log('다음주 버튼 클릭');
-        fetchMenuData(); // 데이터 다시 조회
     };
 
     const fetchMenuData = () => {
-        axios.get('/menu/' + weekIndex, {
+        axios.get(`review/line-graph/${weekIndex}`, {
             withCredentials: true
         })
             .then(response => {
-                setMenuData(response.data);
+                const transformedData = Array(7).fill({ preference: 0 }); // 7일 기준의 기본값 설정
+                const daysOfWeek = ["월", "화", "수", "목", "금", "토", "일"];
+    
+                daysOfWeek.forEach((day, index) => {
+                    if (response.data[day]) {
+                        // 요일별 데이터가 존재할 경우 해당 인덱스에 값 할당
+                        const likesData = response.data[day].map(item => ({
+                            preference: item.preference
+                        }));
+                        transformedData[index] = likesData[0] || { preference: 0 }; // 첫 번째 데이터 사용, 없으면 기본값 0
+                    }
+                });
+    
+                setMenuData(transformedData);
             })
             .catch(error => {
                 console.error('Error fetching menu data:', error);
@@ -38,14 +47,13 @@ function MenuGraphStatic() {
 
     useEffect(() => {
         fetchMenuData();
-    }, []);
-
+    }, [weekIndex]); // weekIndex가 변경될 때마다 데이터 fetching
 
     return (
         <div id="body">
             <div className="no-mobile">모바일 버전으로 변경해주세요.</div>
             <div className="mobile">
-                <Header/>
+                <Header />
 
                 <div id="captionStatic">
                     <div>메뉴 선호도 통계</div>
@@ -66,10 +74,10 @@ function MenuGraphStatic() {
                     </section>
                 </div>
 
-                <LineChart/>
+                <LineChart menuData={menuData} /> {/* LineChart에 데이터 전달 */}
             </div>
         </div>
-    )
+    );
 }
 
 export default MenuGraphStatic;
